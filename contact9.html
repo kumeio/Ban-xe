@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<style>
+/* ===== THINHCAR AUTH ===== */
+.tc-auth-wrap { display:inline-block; position:relative; vertical-align:middle; margin-left:14px; }
+.tc-login-btn {
+  background:transparent; border:2px solid rgba(255,255,255,0.8);
+  color:#fff; padding:5px 15px; border-radius:4px;
+  font-size:13px; font-family:'Open Sans',sans-serif;
+  cursor:pointer; letter-spacing:0.4px;
+  transition:background .2s;
+}
+.tc-login-btn:hover { background:rgba(255,255,255,0.18); }
+.tc-user-btn {
+  background:rgba(46,125,50,0.95); border:2px solid #43a047;
+  color:#fff; padding:5px 15px; border-radius:4px;
+  font-size:13px; font-family:'Open Sans',sans-serif;
+  cursor:pointer; font-weight:700; letter-spacing:0.4px;
+  transition:background .2s;
+}
+.tc-user-btn:hover { background:#2e7d32; }
+.tc-dropdown {
+  display:none; position:absolute; right:0; top:calc(100% + 8px);
+  background:#fff; border-radius:7px;
+  box-shadow:0 6px 24px rgba(0,0,0,0.18);
+  min-width:178px; z-index:99999; overflow:hidden;
+}
+.tc-dropdown.open { display:block; }
+.tc-dropdown a, .tc-dropdown button {
+  display:block; width:100%; text-align:left;
+  padding:11px 17px; background:none; border:none;
+  color:#333; font-size:13.5px;
+  font-family:'Open Sans',sans-serif; cursor:pointer;
+  text-decoration:none; transition:background .15s; box-sizing:border-box;
+}
+.tc-dropdown a:hover, .tc-dropdown button:hover { background:#f1f8f1; color:#2e7d32; }
+.tc-dd-divider { height:1px; background:#eee; }
+
+/* Modal */
+.tc-overlay {
+  display:none; position:fixed; inset:0;
+  background:rgba(0,0,0,0.55); z-index:999999;
+  align-items:center; justify-content:center;
+}
+.tc-overlay.open { display:flex; }
+.tc-modal {
+  background:#fff; border-radius:11px;
+  padding:36px 34px 28px; width:100%; max-width:360px;
+  box-shadow:0 14px 50px rgba(0,0,0,0.22); position:relative;
+  animation:tcIn .22s ease;
+}
+@keyframes tcIn { from{opacity:0;transform:translateY(-16px)} to{opacity:1;transform:translateY(0)} }
+.tc-close {
+  position:absolute; top:12px; right:15px;
+  background:none; border:none; font-size:22px;
+  color:#aaa; cursor:pointer; line-height:1;
+}
+.tc-close:hover { color:#333; }
+.tc-modal-brand { font-size:18px; font-weight:800; color:#2e7d32;
+  font-family:'Open Sans',sans-serif; letter-spacing:1px; margin-bottom:16px; }
+.tc-modal h3 { margin:0 0 4px; font-size:19px; color:#222;
+  font-family:'Open Sans',sans-serif; font-weight:700; }
+.tc-modal-sub { margin:0 0 20px; font-size:12.5px; color:#999;
+  font-family:'Open Sans',sans-serif; }
+.tc-modal label { display:block; font-size:12.5px; color:#555;
+  margin-bottom:5px; font-family:'Open Sans',sans-serif; }
+.tc-modal input {
+  width:100%; padding:10px 12px; border:1.5px solid #ddd;
+  border-radius:5px; font-size:14px; font-family:'Open Sans',sans-serif;
+  margin-bottom:14px; box-sizing:border-box; outline:none;
+  transition:border-color .2s;
+}
+.tc-modal input:focus { border-color:#43a047; }
+.tc-err { color:#c0392b; font-size:12.5px; margin:-8px 0 10px;
+  display:none; font-family:'Open Sans',sans-serif; }
+.tc-err.show { display:block; }
+.tc-submit {
+  width:100%; padding:11px; background:#2e7d32; color:#fff;
+  border:none; border-radius:5px; font-size:15px;
+  font-family:'Open Sans',sans-serif; font-weight:700;
+  cursor:pointer; transition:background .2s;
+}
+.tc-submit:hover { background:#1b5e20; }
+
+/* ===== FIX NAV WRAP ===== */
+.tm-nav-ul {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  white-space: nowrap !important;
+}
+.tm-nav-li {
+  white-space: nowrap !important;
+}
+.tm-nav-link {
+  white-space: nowrap !important;
+  display: inline-block !important;
+}
+</style>
+
+	<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>THINHCAR - Liên Hệ</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet" />
+    <link href="css/all.min.css" rel="stylesheet" />
+	<link href="css/templatemo-style.css" rel="stylesheet" />
+</head>
+<!--
+
+Simple House
+
+https://templatemo.com/tm-539-simple-house
+
+-->
+<body> 
+
+	<div class="container">
+	<!-- Top box -->
+		<!-- Logo & Site Name -->
+		<div class="placeholder">
+			<div class="parallax-window" data-parallax="scroll" data-image-src="img/thinhcar-01.jpg">
+				<div class="tm-header">
+					<div class="row tm-header-inner">
+						<div class="col-md-6 col-12">
+							<img src="img/thinhcar-logo.png" alt="Logo"
+								 style="width:148px;height:auto;position:relative;top:18px;margin-right:-38px;">
+							<div class="tm-site-text-box">
+								<h1 class="tm-site-title">THINHCAR</h1>
+								<h6 class="tm-site-description">Uy tín tạo nên thương hiệu</h6>
+							</div>
+						</div>
+						<nav class="col-md-6 col-12 tm-nav">
+							<ul class="tm-nav-ul">
+								<li class="tm-nav-li"><a href="index9.html" class="tm-nav-link">Trang chủ</a></li>
+								<li class="tm-nav-li"><a href="about9.html" class="tm-nav-link">Giới thiệu</a></li>
+								<li class="tm-nav-li"><a href="contact9.html" class="tm-nav-link active">Liên hệ</a></li>
+							<li class="tm-nav-li"><span class="tc-auth-wrap" id="tc-auth-wrap"></span></li>
+							</ul>
+						</nav>	
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<main>
+			<header class="row tm-welcome-section">
+				<h2 class="col-12 text-center tm-section-title">Liên Hệ THINHCAR</h2>
+				<p class="col-12 text-center">Liên hệ THINHCAR ngay hôm nay để được tư vấn mua xe, báo giá ưu đãi, hỗ trợ vay trả góp nhanh chóng và giải đáp mọi thắc mắc từ đội ngũ chuyên viên chuyên nghiệp của chúng tôi.</p>
+			</header>
+
+			<div class="tm-container-inner-2 tm-contact-section">
+				<div class="row">
+					<div class="col-md-6">
+						<form action="" method="POST" class="tm-contact-form">
+					        <div class="form-group">
+					          <input type="text" name="name" class="form-control" placeholder="Họ và tên" required="" />
+					        </div>
+					        
+					        <div class="form-group">
+					          <input type="email" name="email" class="form-control" placeholder="Email của bạn" required="" />
+					        </div>
+				
+					        <div class="form-group">
+					          <textarea rows="5" name="message" class="form-control" placeholder="Nội dung cần tư vấn" required=""></textarea>
+					        </div>
+					
+					        <div class="form-group tm-d-flex">
+								<button type="submit" class="tm-btn tm-btn-success tm-btn-right">
+									Gửi liên hệ
+								</button>
+					        </div>
+						</form>
+					</div>
+					<div class="col-md-6">
+						<div class="tm-address-box">
+							<h4 class="tm-info-title tm-text-success">Thông Tin Showroom</h4>
+							<address>
+								Tân An, Tây Ninh, Việt Nam
+							</address>
+							<a href="tel:0909 888 999" class="tm-contact-link">
+								<i class="fas fa-phone tm-contact-icon"></i>080-090-0110
+							</a>
+							<a href="mailto:info@company.co" class="tm-contact-link">
+								<i class="fas fa-envelope tm-contact-icon"></i>thinhcar.auto@gmail.com
+							</a>
+							<div class="tm-contact-social">
+								<a href="https://fb.com/templatemo" class="tm-social-link"><i class="fab fa-facebook tm-social-icon"></i></a>
+								<a href="#" class="tm-social-link"><i class="fab fa-twitter tm-social-icon"></i></a>
+								<a href="#" class="tm-social-link"><i class="fab fa-instagram tm-social-icon"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+            
+<!-- How to change your own map point
+	1. Go to Google Maps
+	2. Click on your location point
+	3. Click "Share" and choose "Embed map" tab
+	4. Copy only URL and paste it within the src="" field below
+-->
+			<div class="tm-container-inner-2 tm-map-section">
+				<div class="row">
+					<div class="col-12">
+						<div class="tm-map">
+							<iframe src="https://www.google.com/maps?q=Tân%20An,%20Tây%20Ninh,%20Việt%20Nam&output=embed"
+									height="500"
+									style="width:100%; border:0;"
+									allowfullscreen=""
+									loading="lazy">
+							</iframe>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="tm-container-inner-2 tm-info-section">
+				<div class="row">
+					<!-- FAQ -->
+					<div class="col-12 tm-faq">
+						<h2 class="text-center tm-section-title">Câu hỏi thường gặp</h2>
+						<p class="text-center">Những câu hỏi khách hàng thường quan tâm khi mua xe tại THINHCAR.</p>
+						<div class="tm-accordion">
+							<button class="accordion">1. Xe có hỗ trợ trả góp không?</button>
+							<div class="panel">
+								<p>Có. THINHCAR hiện đang liên kết với nhiều ngân hàng và tổ chức tài chính uy tín nhằm hỗ trợ khách hàng mua xe trả góp với hạn mức vay lên đến 80% giá trị xe. Thủ tục đăng ký đơn giản, thời gian xét duyệt nhanh chóng và linh hoạt theo hồ sơ của từng khách hàng. Đội ngũ tư vấn viên của chúng tôi sẽ hỗ trợ lựa chọn gói vay phù hợp, mức lãi suất ưu đãi và kỳ hạn thanh toán thuận tiện nhất để khách hàng dễ dàng sở hữu chiếc xe mong muốn.</p>
+							</div>
+							
+							<button class="accordion">2. Có bảo hành chính hãng không?</button>
+							<div class="panel">
+								<p>Tất cả các dòng xe được phân phối tại THINHCAR đều có chính sách bảo hành chính hãng theo tiêu chuẩn của từng thương hiệu. Ngoài chế độ bảo hành, khách hàng còn được hỗ trợ kiểm tra kỹ thuật định kỳ, bảo dưỡng chuyên sâu và tư vấn sử dụng xe đúng cách. Trong quá trình sử dụng, nếu phát sinh sự cố kỹ thuật, đội ngũ chăm sóc khách hàng của chúng tôi luôn sẵn sàng hỗ trợ nhanh chóng và tận tâm.</p>
+							</div>
+							
+							<button class="accordion">3. Có hỗ trợ sang tên đăng ký không?</button>
+							<div class="panel">
+								<p>Có. THINHCAR hỗ trợ khách hàng hoàn thiện toàn bộ quy trình mua bán xe bao gồm công chứng hợp đồng, sang tên chủ sở hữu, đăng ký biển số và chuẩn bị hồ sơ liên quan theo đúng quy định. Chúng tôi luôn cố gắng rút ngắn thời gian xử lý thủ tục để khách hàng nhận xe nhanh chóng và thuận tiện nhất. Mọi quy trình đều được thực hiện minh bạch, rõ ràng và có nhân viên hướng dẫn chi tiết.</p>
+							</div>
+							
+							<button class="accordion">4. Có thu xe cũ đổi xe mới không?</button>
+							<div class="panel">
+								<p>Có. THINHCAR cung cấp dịch vụ thu mua xe cũ và hỗ trợ khách hàng đổi sang xe mới với mức định giá hợp lý dựa trên tình trạng thực tế, đời xe và giá thị trường hiện tại. Quy trình kiểm tra xe rõ ràng, minh bạch và công khai từng hạng mục. Sau khi thống nhất giá trị xe cũ, khách hàng có thể bù chênh lệch để nhận xe mới nhanh chóng trong ngày cùng nhiều ưu đãi hấp dẫn.</p>
+							</div>
+						</div>	
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<footer class="tm-footer text-center">
+			<p>
+				Copyright © 2026 THINHCAR
+
+				| Thiết kế bởi Thịnh
+			</p>
+		</footer>
+	</div>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/parallax.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			var acc = document.getElementsByClassName("accordion");
+			var i;
+			
+			for (i = 0; i < acc.length; i++) {
+			  acc[i].addEventListener("click", function() {
+			    this.classList.toggle("active");
+			    var panel = this.nextElementSibling;
+			    if (panel.style.maxHeight) {
+			      panel.style.maxHeight = null;
+			    } else {
+			      panel.style.maxHeight = panel.scrollHeight + "px";
+			    }
+			  });
+			}	
+		});
+	</script>
+
+<!-- THINHCAR Login Modal -->
+<div class="tc-overlay" id="tc-overlay">
+  <div class="tc-modal">
+    <button class="tc-close" id="tc-close">&times;</button>
+    <div class="tc-modal-brand">THINHCAR</div>
+    <h3>Đăng nhập</h3>
+    <p class="tc-modal-sub">Uy tín tạo nên thương hiệu</p>
+    <label for="tc-user">Tên đăng nhập</label>
+    <input type="text" id="tc-user" placeholder="Nhập tên đăng nhập" />
+    <label for="tc-pass">Mật khẩu</label>
+    <input type="password" id="tc-pass" placeholder="Nhập mật khẩu" />
+    <div class="tc-err" id="tc-err">Tên đăng nhập hoặc mật khẩu không đúng.</div>
+    <button class="tc-submit" id="tc-submit">Đăng nhập</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  function getUser(){ return localStorage.getItem('thinhcar_user'); }
+  function setUser(n){ localStorage.setItem('thinhcar_user', n); }
+  function delUser(){ localStorage.removeItem('thinhcar_user'); }
+  function esc(s){ return s.replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); }
+
+  function renderAuth(){
+    var wrap = document.getElementById('tc-auth-wrap');
+    if(!wrap) return;
+    var user = getUser();
+    if(!user){
+      wrap.innerHTML = '<button class="tc-login-btn" id="tc-open">&#128100; Đăng nhập</button>';
+      document.getElementById('tc-open').onclick = function(){ document.getElementById('tc-overlay').classList.add('open'); setTimeout(function(){document.getElementById('tc-user').focus();},80); };
+    } else {
+      var isAdmin = (user === 'admin');
+      var adminRow = isAdmin ? '<div class="tc-dd-divider"></div><a href="admin/index.html">&#9881; Trang quản trị</a>' : '';
+      wrap.innerHTML =
+        '<button class="tc-user-btn" id="tc-ubtn">&#128100; '+esc(user)+' &#9660;</button>'+
+        '<div class="tc-dropdown" id="tc-dd">'+
+          adminRow+
+          '<div class="tc-dd-divider"></div>'+
+          '<button id="tc-logout">&#128682; Đăng xuất</button>'+
+        '</div>';
+      document.getElementById('tc-ubtn').onclick = function(e){
+        e.stopPropagation();
+        document.getElementById('tc-dd').classList.toggle('open');
+      };
+      document.getElementById('tc-logout').onclick = function(){ delUser(); renderAuth(); };
+    }
+  }
+
+  function doLogin(){
+    var user = document.getElementById('tc-user').value.trim();
+    var pass = document.getElementById('tc-pass').value;
+    var err  = document.getElementById('tc-err');
+    err.classList.remove('show');
+    if(!user||!pass){ err.textContent='Vui lòng nhập đầy đủ thông tin.'; err.classList.add('show'); return; }
+    if(user==='admin' && pass==='888'){ setUser('admin'); closeModal(); renderAuth(); }
+    else if(user!=='admin'){ setUser(user); closeModal(); renderAuth(); }
+    else { err.textContent='Tên đăng nhập hoặc mật khẩu không đúng.'; err.classList.add('show'); }
+  }
+
+  function closeModal(){
+    document.getElementById('tc-overlay').classList.remove('open');
+    document.getElementById('tc-err').classList.remove('show');
+    document.getElementById('tc-user').value='';
+    document.getElementById('tc-pass').value='';
+  }
+
+  document.addEventListener('click', function(e){
+    var dd = document.getElementById('tc-dd');
+    if(dd && !dd.contains(e.target) && e.target.id!=='tc-ubtn') dd.classList.remove('open');
+    var overlay = document.getElementById('tc-overlay');
+    if(overlay && e.target===overlay) closeModal();
+  });
+
+  document.addEventListener('DOMContentLoaded', function(){
+    renderAuth();
+    document.getElementById('tc-close').onclick = closeModal;
+    document.getElementById('tc-submit').onclick = doLogin;
+    document.getElementById('tc-pass').onkeydown = function(e){ if(e.key==='Enter') doLogin(); };
+  });
+})();
+</script>
+
+
+<script>
+// ===== GỬI LIÊN HỆ -> LƯU VÀO support.html (localStorage) =====
+(function(){
+  document.addEventListener('DOMContentLoaded', function(){
+    var form = document.querySelector('.tm-contact-form');
+    if(!form) return;
+
+    // Ngăn submit mặc định
+    form.addEventListener('submit', function(e){ e.preventDefault(); });
+
+    // Nút gửi liên hệ
+    var submitBtn = form.querySelector('button[type="submit"]');
+    if(!submitBtn) return;
+
+    submitBtn.addEventListener('click', function(e){
+      e.preventDefault();
+      var name    = form.querySelector('input[name="name"]').value.trim();
+      var email   = form.querySelector('input[name="email"]').value.trim();
+      var message = form.querySelector('textarea[name="message"]').value.trim();
+
+      if(!name || !email || !message){
+        alert('Vui lòng điền đầy đủ thông tin!');
+        return;
+      }
+
+      // Đọc danh sách hiện có
+      var list = [];
+      try{ list = JSON.parse(localStorage.getItem('supportRequests') || '[]'); }catch(e){}
+
+      // Thêm mục mới (ID tự động = thứ tự tiếp theo)
+      list.push({ email: email, name: name, message: message });
+      localStorage.setItem('supportRequests', JSON.stringify(list));
+
+      // Reset form và thông báo
+      form.reset();
+      alert('✅ Gửi liên hệ thành công! Chúng tôi sẽ phản hồi sớm nhất có thể.');
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

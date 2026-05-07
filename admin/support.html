@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>AdminLTE 4 | Hỗ Trợ Khách Hàng</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#007bff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)" />
+    <meta name="supported-color-schemes" content="light dark" />
+    <link rel="preload" href="dist/css/adminlte.css" as="style" />
+
+    <!--begin::Fonts-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css"
+      integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q="
+      crossorigin="anonymous"
+      media="print"
+      onload="this.media = 'all'"
+    />
+    <!--end::Fonts-->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/styles/overlayscrollbars.min.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="dist/css/adminlte.css" />
+  </head>
+  <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+    <div class="app-wrapper">
+
+      <!--begin::Header-->
+      <nav class="app-header navbar navbar-expand bg-body">
+        <div class="container-fluid">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button">
+                <i class="bi bi-list"></i>
+              </a>
+            </li>
+            <li class="nav-item d-none d-md-block">
+              <a href="index.html" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item d-none d-md-block">
+              <a href="#" class="nav-link">Contact</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+                <i class="bi bi-search"></i>
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" data-bs-toggle="dropdown" href="#">
+                <i class="bi bi-chat-text"></i>
+                <span class="navbar-badge badge text-bg-danger">3</span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+                <a href="#" class="dropdown-item">
+                  <div class="d-flex">
+                    <div class="flex-shrink-0">
+                      <img src="dist/assets/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 rounded-circle me-3" />
+                    </div>
+                    <div class="flex-grow-1">
+                      <h3 class="dropdown-item-title">Brad Diesel <span class="float-end fs-7 text-danger"><i class="bi bi-star-fill"></i></span></h3>
+                      <p class="fs-7">Call me whenever you can...</p>
+                      <p class="fs-7 text-secondary"><i class="bi bi-clock-fill me-1"></i> 4 Hours Ago</p>
+                    </div>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" data-bs-toggle="dropdown" href="#">
+                <i class="bi bi-bell-fill"></i>
+                <span class="navbar-badge badge text-bg-warning">15</span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+                <span class="dropdown-item dropdown-header">15 Notifications</span>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                  <i class="bi bi-envelope me-2"></i> 4 new messages
+                  <span class="float-end text-secondary fs-7">3 mins</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-lte-toggle="fullscreen">
+                <i data-lte-icon="maximize" class="bi bi-arrows-fullscreen"></i>
+                <i data-lte-icon="minimize" class="bi bi-fullscreen-exit" style="display: none"></i>
+              </a>
+            </li>
+            <li class="nav-item dropdown user-menu">
+              <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                <img src="dist/assets/img/avatar.png" class="user-image rounded-circle shadow" alt="User Image" />
+                <span class="d-none d-md-inline">Thịnh Nguyễn</span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+                <li class="user-header text-bg-primary">
+                  <img src="dist/assets/img/avatar.png" class="rounded-circle shadow" alt="User Image" />
+                  <p>Thịnh Nguyễn<small>Member since Nov. 2023</small></p>
+                </li>
+                <li class="user-footer">
+                  <a href="#" class="btn btn-outline-secondary">Profile</a>
+                  <a href="#" class="btn btn-outline-danger float-end">Sign out</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <!--end::Header-->
+
+      <!--begin::Sidebar-->
+      <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
+        <div class="sidebar-brand">
+          <a href="index.html" class="brand-link">
+            <img src="dist/assets/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image opacity-75 shadow" />
+            <span class="brand-text fw-light">THINHCAR</span>
+          </a>
+        </div>
+        <div class="sidebar-wrapper">
+          <nav class="mt-2">
+            <ul class="nav sidebar-menu flex-column"
+                data-lte-toggle="treeview"
+                role="navigation"
+                aria-label="Main navigation"
+                data-accordion="false"
+                id="navigation">
+              <li class="nav-item">
+                <a href="index.html" class="nav-link">
+                  <i class="nav-icon bi bi-house-fill"></i>
+                  <p>Trang chủ</p>
+                </a>
+              </li>
+              <li class="nav-item user-menu open">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon bi bi-box-seam-fill"></i>
+                  <p>Danh mục <i class="nav-arrow bi bi-chevron-right"></i></p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="products.html" class="nav-link">
+                      <i class="nav-icon bi bi-car-front"></i>
+                      <p>Sản phẩm</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="about.html" class="nav-link">
+                      <i class="nav-icon bi bi-people"></i>
+                      <p>Nhân viên</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="support.html" class="nav-link active">
+                      <i class="nav-icon bi bi-chat-dots"></i>
+                      <p>Hỗ trợ khách hàng</p>
+                    </a>
+                  </li>
+                </ul>
+          </nav>
+        </div>
+      </aside>
+      <!--end::Sidebar-->
+
+      <!--begin::App Main-->
+      <main class="app-main">
+        <div class="app-content-header">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm-6">
+                <h3 class="mb-0">Hỗ Trợ Khách Hàng</h3>
+              </div>
+              <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-end">
+                  <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Hỗ trợ khách hàng</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="app-content">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card mb-4">
+                  <div class="card-header d-flex align-items-center justify-content-between">
+                    <h3 class="card-title mb-0">
+                      <i class="bi bi-headset me-2"></i>Danh sách yêu cầu &amp; đánh giá khách hàng
+                    </h3>
+                    <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#supportModal">
+                      <i class="bi bi-plus-lg me-1"></i> Thêm yêu cầu
+                    </button>
+                  </div>
+                  <div class="card-body">
+                    <table id="supportTable" class="table table-bordered table-hover align-middle">
+                      <thead class="table-primary">
+                        <tr>
+                          <th style="width: 40px">#</th>
+                          <th style="width: 220px"><i class="bi bi-envelope me-1"></i>Email</th>
+                          <th style="width: 180px"><i class="bi bi-person me-1"></i>Tên khách hàng</th>
+                          <th><i class="bi bi-chat-left-text me-1"></i>Câu hỏi / Yêu cầu</th>
+                          <th style="width: 100px">Thao tác</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <!-- Dữ liệu sẽ được render bằng JS -->
+                      </tbody>
+                    </table>
+                    <p id="emptyMsg" class="text-center text-secondary mt-3" style="display:none;">
+                      <i class="bi bi-inbox fs-4 d-block mb-1"></i>Chưa có yêu cầu nào. Hãy thêm yêu cầu đầu tiên!
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <!--end::App Main-->
+
+      <footer class="app-footer">
+        <div class="float-end d-none d-sm-inline">Anything you want</div>
+        <strong>
+          Copyright &copy; 2014-2026&nbsp;
+          <a href="https://adminlte.io" class="text-decoration-none">AdminLTE.io</a>.
+        </strong>
+        All rights reserved.
+      </footer>
+    </div>
+    <!--end::App Wrapper-->
+
+    <!-- Modal Thêm / Chỉnh sửa -->
+    <div class="modal fade" id="supportModal" tabindex="-1" aria-labelledby="supportModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="supportModalLabel">
+              <i class="bi bi-headset me-2"></i>Thông tin yêu cầu khách hàng
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="row mb-3">
+              <label for="customerEmail" class="col-sm-3 col-form-label">Email <span class="text-danger">*</span></label>
+              <div class="col-sm-9">
+                <input type="email" class="form-control" id="customerEmail" placeholder="Nhập địa chỉ email" />
+                <div class="invalid-feedback">Vui lòng nhập email hợp lệ.</div>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="customerName" class="col-sm-3 col-form-label">Tên khách hàng <span class="text-danger">*</span></label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="customerName" placeholder="Nhập tên khách hàng" />
+                <div class="invalid-feedback">Vui lòng nhập tên khách hàng.</div>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="customerMessage" class="col-sm-3 col-form-label">Câu hỏi / Yêu cầu <span class="text-danger">*</span></label>
+              <div class="col-sm-9">
+                <textarea class="form-control" id="customerMessage" rows="4" placeholder="Nhập câu hỏi hoặc yêu cầu của khách hàng..."></textarea>
+                <div class="invalid-feedback">Vui lòng nhập nội dung yêu cầu.</div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              <i class="bi bi-x-lg me-1"></i>Đóng
+            </button>
+            <button type="button" id="saveSupport" class="btn btn-primary">
+              <i class="bi bi-floppy me-1"></i>Lưu yêu cầu
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--begin::Scripts-->
+    <script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/browser/overlayscrollbars.browser.es6.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <script src="dist/js/adminlte.js"></script>
+    <script>
+      const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
+      const Default = {
+        scrollbarTheme: 'os-theme-light',
+        scrollbarAutoHide: 'leave',
+        scrollbarClickScroll: true,
+      };
+      document.addEventListener('DOMContentLoaded', function () {
+        const sidebarWrapper = document.querySelector(SELECTOR_SIDEBAR_WRAPPER);
+        const isMobile = window.innerWidth <= 992;
+        if (sidebarWrapper && OverlayScrollbarsGlobal?.OverlayScrollbars !== undefined && !isMobile) {
+          OverlayScrollbarsGlobal.OverlayScrollbars(sidebarWrapper, {
+            scrollbars: {
+              theme: Default.scrollbarTheme,
+              autoHide: Default.scrollbarAutoHide,
+              clickScroll: Default.scrollbarClickScroll,
+            },
+          });
+        }
+      });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+      $(function () {
+        var supportList = [];
+        var editIndex = -1;
+
+        // Load dữ liệu từ localStorage
+        var saved = localStorage.getItem('supportRequests');
+        if (saved) supportList = JSON.parse(saved);
+        renderTable();
+
+        // Hiển thị bảng
+        function renderTable() {
+          var tbody = $('#supportTable tbody');
+          tbody.html('');
+          if (supportList.length === 0) {
+            $('#emptyMsg').show();
+          } else {
+            $('#emptyMsg').hide();
+            supportList.forEach(function (item, i) {
+              var row = `
+                <tr>
+                  <td>${i + 1}</td>
+                  <td><a href="mailto:${escHtml(item.email)}">${escHtml(item.email)}</a></td>
+                  <td>${escHtml(item.name)}</td>
+                  <td style="white-space: pre-wrap;">${escHtml(item.message)}</td>
+                  <td>
+                    <button class="btn btn-warning btn-sm me-1 btn-edit" data-index="${i}" title="Chỉnh sửa">
+                      <i class="bi bi-pencil-fill"></i>
+                    </button>
+                    <button class="btn btn-danger btn-sm btn-delete" data-index="${i}" title="Xóa">
+                      <i class="bi bi-trash-fill"></i>
+                    </button>
+                  </td>
+                </tr>`;
+              tbody.append(row);
+            });
+          }
+        }
+
+        // Escape HTML để tránh XSS
+        function escHtml(str) {
+          return $('<div>').text(str).html();
+        }
+
+        // Reset form
+        function resetForm() {
+          editIndex = -1;
+          $('#supportModalLabel').html('<i class="bi bi-headset me-2"></i>Thông tin yêu cầu khách hàng');
+          $('#saveSupport').html('<i class="bi bi-floppy me-1"></i>Lưu yêu cầu');
+          $('#customerEmail').val('').removeClass('is-invalid');
+          $('#customerName').val('').removeClass('is-invalid');
+          $('#customerMessage').val('').removeClass('is-invalid');
+        }
+
+        // Mở modal thêm mới
+        $('[data-bs-target="#supportModal"]').click(function () {
+          resetForm();
+        });
+
+        // Nút Lưu / Cập nhật
+        $('#saveSupport').click(function () {
+          var email = $('#customerEmail').val().trim();
+          var name = $('#customerName').val().trim();
+          var message = $('#customerMessage').val().trim();
+          var valid = true;
+
+          // Validate
+          if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            $('#customerEmail').addClass('is-invalid');
+            valid = false;
+          } else {
+            $('#customerEmail').removeClass('is-invalid');
+          }
+          if (!name) {
+            $('#customerName').addClass('is-invalid');
+            valid = false;
+          } else {
+            $('#customerName').removeClass('is-invalid');
+          }
+          if (!message) {
+            $('#customerMessage').addClass('is-invalid');
+            valid = false;
+          } else {
+            $('#customerMessage').removeClass('is-invalid');
+          }
+
+          if (!valid) return;
+
+          var entry = { email: email, name: name, message: message };
+          if (editIndex >= 0) {
+            supportList[editIndex] = entry;
+          } else {
+            supportList.push(entry);
+          }
+
+          localStorage.setItem('supportRequests', JSON.stringify(supportList));
+          $('#supportModal').modal('hide');
+          renderTable();
+          resetForm();
+        });
+
+        // Nút Xóa
+        $(document).on('click', '.btn-delete', function () {
+          var index = $(this).data('index');
+          if (confirm('Bạn có chắc muốn xóa yêu cầu này không?')) {
+            supportList.splice(index, 1);
+            localStorage.setItem('supportRequests', JSON.stringify(supportList));
+            renderTable();
+          }
+        });
+
+        // Nút Chỉnh sửa
+        $(document).on('click', '.btn-edit', function () {
+          var index = $(this).data('index');
+          var item = supportList[index];
+          editIndex = index;
+          $('#supportModalLabel').html('<i class="bi bi-pencil-fill me-2"></i>Chỉnh sửa yêu cầu');
+          $('#saveSupport').html('<i class="bi bi-floppy me-1"></i>Cập nhật yêu cầu');
+          $('#customerEmail').val(item.email);
+          $('#customerName').val(item.name);
+          $('#customerMessage').val(item.message);
+          $('#supportModal').modal('show');
+        });
+
+        // Reset khi đóng modal
+        $('#supportModal').on('hidden.bs.modal', function () {
+          resetForm();
+        });
+      });
+    </script>
+    <!--end::Scripts-->
+  </body>
+</html>

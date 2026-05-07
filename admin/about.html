@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="vi">
+  <!--begin::Head-->
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>AdminLTE 4 | Nhân Viên</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#007bff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)" />
+    <meta name="supported-color-schemes" content="light dark" />
+    <link rel="preload" href="dist/css/adminlte.css" as="style" />
+
+    <!--begin::Fonts-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css"
+      integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q="
+      crossorigin="anonymous"
+      media="print"
+      onload="this.media = 'all'"
+    />
+    <!--end::Fonts-->
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/styles/overlayscrollbars.min.css"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="dist/css/adminlte.css" />
+  </head>
+  <!--end::Head-->
+  <!--begin::Body-->
+  <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+    <!--begin::App Wrapper-->
+    <div class="app-wrapper">
+      <!--begin::Header-->
+      <nav class="app-header navbar navbar-expand bg-body">
+        <div class="container-fluid">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button">
+                <i class="bi bi-list"></i>
+              </a>
+            </li>
+            <li class="nav-item d-none d-md-block">
+              <a href="index.html" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item d-none d-md-block">
+              <a href="#" class="nav-link">Contact</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+                <i class="bi bi-search"></i>
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" data-bs-toggle="dropdown" href="#">
+                <i class="bi bi-chat-text"></i>
+                <span class="navbar-badge badge text-bg-danger">3</span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+                <a href="#" class="dropdown-item">
+                  <div class="d-flex">
+                    <div class="flex-shrink-0">
+                      <img src="dist/assets/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 rounded-circle me-3" />
+                    </div>
+                    <div class="flex-grow-1">
+                      <h3 class="dropdown-item-title">Brad Diesel <span class="float-end fs-7 text-danger"><i class="bi bi-star-fill"></i></span></h3>
+                      <p class="fs-7">Call me whenever you can...</p>
+                      <p class="fs-7 text-secondary"><i class="bi bi-clock-fill me-1"></i> 4 Hours Ago</p>
+                    </div>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" data-bs-toggle="dropdown" href="#">
+                <i class="bi bi-bell-fill"></i>
+                <span class="navbar-badge badge text-bg-warning">15</span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+                <span class="dropdown-item dropdown-header">15 Notifications</span>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                  <i class="bi bi-envelope me-2"></i> 4 new messages
+                  <span class="float-end text-secondary fs-7">3 mins</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-lte-toggle="fullscreen">
+                <i data-lte-icon="maximize" class="bi bi-arrows-fullscreen"></i>
+                <i data-lte-icon="minimize" class="bi bi-fullscreen-exit" style="display: none"></i>
+              </a>
+            </li>
+            <li class="nav-item dropdown user-menu">
+              <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                <img src="dist/assets/img/avatar.png" class="user-image rounded-circle shadow" alt="User Image" />
+                <span class="d-none d-md-inline">Thịnh Nguyễn</span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+                <li class="user-header text-bg-primary">
+                  <img src="dist/assets/img/avatar.png" class="rounded-circle shadow" alt="User Image" />
+                  <p>Thịnh Nguyễn<small>Member since Nov. 2023</small></p>
+                </li>
+                <li class="user-footer">
+                  <a href="#" class="btn btn-outline-secondary">Profile</a>
+                  <a href="#" class="btn btn-outline-danger float-end">Sign out</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <!--end::Header-->
+
+      <!--begin::Sidebar-->
+      <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
+        <div class="sidebar-brand">
+          <a href="index.html" class="brand-link">
+            <img src="dist/assets/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image opacity-75 shadow" />
+            <span class="brand-text fw-light">THINHCAR</span>
+          </a>
+        </div>
+        <div class="sidebar-wrapper">
+          <nav class="mt-2">
+            <ul class="nav sidebar-menu flex-column"
+                data-lte-toggle="treeview"
+                role="navigation"
+                aria-label="Main navigation"
+                data-accordion="false"
+                id="navigation">
+              <li class="nav-item">
+                <a href="index.html" class="nav-link">
+                  <i class="nav-icon bi bi-house-fill"></i>
+                  <p>Trang chủ</p>
+                </a>
+              </li>
+              <li class="nav-item user-menu open">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon bi bi-box-seam-fill"></i>
+                  <p>Danh mục <i class="nav-arrow bi bi-chevron-right"></i></p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="products.html" class="nav-link">
+                      <i class="nav-icon bi bi-car-front"></i>
+                      <p>Sản phẩm</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="about.html" class="nav-link active">
+                      <i class="nav-icon bi bi-people"></i>
+                      <p>Nhân viên</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="support.html" class="nav-link">
+                      <i class="nav-icon bi bi-chat-dots"></i>
+                      <p>Hỗ trợ khách hàng</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </aside>
+      <!--end::Sidebar-->
+
+      <!--begin::App Main-->
+      <main class="app-main">
+        <div class="app-content-header">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm-6">
+                <h3 class="mb-0">Quản lý nhân viên</h3>
+              </div>
+              <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-end">
+                  <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Nhân viên</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="app-content">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card mb-4">
+                  <div class="card-header">
+                    <h3 class="card-title">Danh sách nhân viên</h3>
+                  </div>
+                  <div class="card-body">
+                    <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#employeeModal">
+                      <i class="bi bi-person-plus-fill me-1"></i> Thêm nhân viên
+                    </button>
+                    <table id="employeeList" class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th style="width: 80px">ID</th>
+                          <th>Tên nhân viên</th>
+                          <th>Chức vụ</th>
+                          <th>Khu vực quản lý</th>
+                          <th style="width: 140px">Chức năng</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <!--end::App Main-->
+
+      <!--begin::Footer-->
+      <footer class="app-footer">
+        <div class="float-end d-none d-sm-inline">Anything you want</div>
+        <strong>
+          Copyright &copy; 2014-2026&nbsp;
+          <a href="https://adminlte.io" class="text-decoration-none">AdminLTE.io</a>.
+        </strong>
+        All rights reserved.
+      </footer>
+      <!--end::Footer-->
+    </div>
+    <!--end::App Wrapper-->
+
+    <!-- Modal Thêm / Chỉnh sửa Nhân viên -->
+    <div class="modal fade" id="employeeModal" tabindex="-1" aria-labelledby="employeeModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="employeeModalLabel">Thông tin nhân viên</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="row mb-3">
+              <label for="employeeId" class="col-sm-4 col-form-label">ID nhân viên</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" id="employeeId" placeholder="Nhập ID nhân viên" />
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="employeeName" class="col-sm-4 col-form-label">Tên nhân viên</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" id="employeeName" placeholder="Nhập tên nhân viên" />
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="employeePosition" class="col-sm-4 col-form-label">Chức vụ</label>
+              <div class="col-sm-8">
+                <select class="form-control" id="employeePosition">
+                  <option value="Giám đốc">Giám đốc</option>
+                  <option value="Phó giám đốc">Phó giám đốc</option>
+                  <option value="Trưởng phòng">Trưởng phòng</option>
+                  <option value="Nhân viên kinh doanh">Nhân viên kinh doanh</option>
+                  <option value="Nhân viên kỹ thuật">Nhân viên kỹ thuật</option>
+                  <option value="Nhân viên hành chính">Nhân viên hành chính</option>
+                  <option value="Bảo vệ">Bảo vệ</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="employeeArea" class="col-sm-4 col-form-label">Khu vực quản lý</label>
+              <div class="col-sm-8">
+                <select class="form-control" id="employeeArea">
+                  <option value="Hà Nội">Hà Nội</option>
+                  <option value="TP. Hồ Chí Minh">TP. Hồ Chí Minh</option>
+                  <option value="Đà Nẵng">Đà Nẵng</option>
+                  <option value="Cần Thơ">Cần Thơ</option>
+                  <option value="Hải Phòng">Hải Phòng</option>
+                  <option value="Bình Dương">Bình Dương</option>
+                  <option value="Đồng Nai">Đồng Nai</option>
+                  <option value="Toàn quốc">Toàn quốc</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+            <button type="button" id="saveEmployee" class="btn btn-primary">Lưu nhân viên</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--begin::Scripts-->
+    <script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/browser/overlayscrollbars.browser.es6.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <script src="dist/js/adminlte.js"></script>
+    <script>
+      const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
+      const Default = {
+        scrollbarTheme: 'os-theme-light',
+        scrollbarAutoHide: 'leave',
+        scrollbarClickScroll: true,
+      };
+      document.addEventListener('DOMContentLoaded', function () {
+        const sidebarWrapper = document.querySelector(SELECTOR_SIDEBAR_WRAPPER);
+        const isMobile = window.innerWidth <= 992;
+        if (sidebarWrapper && OverlayScrollbarsGlobal?.OverlayScrollbars !== undefined && !isMobile) {
+          OverlayScrollbarsGlobal.OverlayScrollbars(sidebarWrapper, {
+            scrollbars: {
+              theme: Default.scrollbarTheme,
+              autoHide: Default.scrollbarAutoHide,
+              clickScroll: Default.scrollbarClickScroll,
+            },
+          });
+        }
+      });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+      $(function () {
+        var employeeList = [];
+        var editIndex = -1;
+
+        // Load dữ liệu từ localStorage
+        var savedData = localStorage.getItem('employees');
+        if (savedData != null) employeeList = JSON.parse(savedData);
+        showEmployees();
+
+        // Hiển thị danh sách nhân viên
+        function showEmployees() {
+          $("#employeeList tbody").html("");
+          for (var i = 0; i < employeeList.length; i++) {
+            var e = employeeList[i];
+            var row = `
+              <tr class="align-middle">
+                <td>${e.id}</td>
+                <td>${e.name}</td>
+                <td>${e.position}</td>
+                <td>${e.area}</td>
+                <td>
+                  <button class="btn btn-warning btn-sm me-1 btn-edit" data-index="${i}" title="Chỉnh sửa">
+                    <i class="bi bi-pencil-fill"></i>
+                  </button>
+                  <button class="btn btn-danger btn-sm btn-delete" data-index="${i}" title="Xóa">
+                    <i class="bi bi-trash-fill"></i>
+                  </button>
+                </td>
+              </tr>`;
+            $("#employeeList tbody").append(row);
+          }
+        }
+
+        // Reset form
+        function resetForm() {
+          editIndex = -1;
+          $("#employeeModalLabel").text("Thông tin nhân viên");
+          $("#saveEmployee").text("Lưu nhân viên");
+          $("#employeeId").val("");
+          $("#employeeName").val("");
+          $("#employeePosition").val("Giám đốc");
+          $("#employeeArea").val("Hà Nội");
+        }
+
+        // Nút "Thêm nhân viên" → reset form
+        $('[data-bs-target="#employeeModal"]').click(function () {
+          resetForm();
+        });
+
+        // Nút Xóa
+        $(document).on('click', '.btn-delete', function () {
+          var index = $(this).data('index');
+          if (confirm('Bạn có chắc muốn xóa nhân viên này không?')) {
+            employeeList.splice(index, 1);
+            localStorage.setItem("employees", JSON.stringify(employeeList));
+            showEmployees();
+          }
+        });
+
+        // Nút Chỉnh sửa → mở modal và điền dữ liệu
+        $(document).on('click', '.btn-edit', function () {
+          var index = $(this).data('index');
+          var e = employeeList[index];
+          editIndex = index;
+          $("#employeeModalLabel").text("Chỉnh sửa nhân viên");
+          $("#saveEmployee").text("Cập nhật nhân viên");
+          $("#employeeId").val(e.id);
+          $("#employeeName").val(e.name);
+          $("#employeePosition").val(e.position);
+          $("#employeeArea").val(e.area);
+          $("#employeeModal").modal('show');
+        });
+
+        // Nút Lưu / Cập nhật
+        $("#saveEmployee").click(function () {
+          var eId = $("#employeeId").val().trim();
+          var eName = $("#employeeName").val().trim();
+          var ePosition = $("#employeePosition").val();
+          var eArea = $("#employeeArea").val();
+
+          if (!eId || !eName) {
+            alert('Vui lòng nhập đầy đủ ID và tên nhân viên!');
+            return;
+          }
+
+          var employee = { id: eId, name: eName, position: ePosition, area: eArea };
+
+          if (editIndex >= 0) {
+            employeeList[editIndex] = employee;
+          } else {
+            employeeList.push(employee);
+          }
+
+          localStorage.setItem("employees", JSON.stringify(employeeList));
+          $("#employeeModal").modal('hide');
+          showEmployees();
+          resetForm();
+        });
+
+        // Reset form khi đóng modal
+        $('#employeeModal').on('hidden.bs.modal', function () {
+          resetForm();
+        });
+      });
+    </script>
+    <!--end::Scripts-->
+  </body>
+</html>

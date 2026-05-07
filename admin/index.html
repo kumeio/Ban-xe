@@ -1,0 +1,805 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>AutoElite Admin | Trang Chủ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <!--begin::Fonts-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css"
+    integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q=" crossorigin="anonymous"
+    media="print" onload="this.media='all'" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet" />
+  <!--end::Fonts-->
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/styles/overlayscrollbars.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="dist/css/adminlte.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.css"
+    integrity="sha256-4MX+61mt9NVvvuPjUWdUdyfZfxSB1/Rf9WtqRHgG5S0=" crossorigin="anonymous" />
+
+  <style>
+    :root {
+      --ae-blue:    #0055d4;
+      --ae-blue2:   #1a7fe8;
+      --ae-blue3:   #3d9eff;
+      --ae-teal:    #00c2b8;
+      --ae-green:   #00b96b;
+      --ae-amber:   #f7a000;
+      --ae-bg:      #f0f6ff;
+      --ae-bg2:     #e2eeff;
+      --ae-surface: #ffffff;
+      --ae-border:  #cfe0f5;
+      --ae-text:    #0d1b3e;
+      --ae-muted:   #6b80a3;
+      --ae-radius:  14px;
+      --ae-shadow:  0 4px 20px rgba(0,80,200,.10);
+    }
+
+    body { background-color: var(--ae-bg) !important; }
+    .app-content { background: transparent !important; }
+
+    /* ── Welcome Banner ── */
+    .ae-welcome {
+      background: linear-gradient(135deg, #003899 0%, #0055d4 50%, #1a7fe8 100%);
+      border-radius: var(--ae-radius);
+      padding: 24px 28px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 22px;
+    }
+    .ae-welcome::before {
+      content:''; position:absolute; right:-30px; top:-40px;
+      width:200px; height:200px; background:rgba(255,255,255,.06); border-radius:50%;
+    }
+    .ae-welcome::after {
+      content:''; position:absolute; right:100px; bottom:-55px;
+      width:140px; height:140px; background:rgba(255,255,255,.04); border-radius:50%;
+    }
+    .ae-welcome-text h2 {
+      font-family:'Montserrat',sans-serif; font-size:19px; font-weight:800; margin-bottom:4px;
+    }
+    .ae-welcome-text p { font-size:12.5px; opacity:.72; margin:0; }
+    .ae-welcome-clock {
+      background:rgba(255,255,255,.13); border-radius:10px;
+      padding:10px 16px; text-align:right; z-index:1; flex-shrink:0;
+    }
+    .ae-welcome-clock .ae-date { font-family:'Montserrat',sans-serif; font-size:14px; font-weight:700; }
+    .ae-welcome-clock .ae-time { font-size:11px; opacity:.6; margin-top:2px; }
+
+    /* ── KPI Grid ── */
+    .ae-kpi-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:22px; }
+
+    .ae-kpi {
+      background:var(--ae-surface);
+      border-radius:var(--ae-radius);
+      border:1px solid var(--ae-border);
+      box-shadow:var(--ae-shadow);
+      padding:18px 16px 14px;
+      position:relative; overflow:hidden;
+      transition:transform .2s, box-shadow .2s;
+    }
+    .ae-kpi:hover { transform:translateY(-3px); box-shadow:0 8px 28px rgba(0,80,200,.14); }
+    .ae-kpi::before {
+      content:''; position:absolute; top:0; left:0; right:0; height:3px;
+      border-radius:var(--ae-radius) var(--ae-radius) 0 0;
+    }
+    .ae-kpi.c-blue::before  { background:linear-gradient(90deg,#0055d4,#3d9eff); }
+    .ae-kpi.c-teal::before  { background:linear-gradient(90deg,#00c2b8,#00e5d8); }
+    .ae-kpi.c-green::before { background:linear-gradient(90deg,#00b96b,#00e690); }
+    .ae-kpi.c-amber::before { background:linear-gradient(90deg,#f7a000,#ffd250); }
+
+    .ae-kpi-icon {
+      width:40px; height:40px; border-radius:10px;
+      display:flex; align-items:center; justify-content:center;
+      font-size:18px; margin-bottom:10px;
+    }
+    .ae-kpi.c-blue  .ae-kpi-icon { background:#deeeff; color:#0055d4; }
+    .ae-kpi.c-teal  .ae-kpi-icon { background:#d3f7f5; color:#00a89e; }
+    .ae-kpi.c-green .ae-kpi-icon { background:#d0f5e6; color:#009952; }
+    .ae-kpi.c-amber .ae-kpi-icon { background:#fff3d4; color:#d08000; }
+
+    .ae-kpi-label { font-size:10.5px; color:var(--ae-muted); font-weight:600; text-transform:uppercase; letter-spacing:.6px; margin-bottom:3px; }
+    .ae-kpi-value { font-family:'Montserrat',sans-serif; font-size:24px; font-weight:800; color:var(--ae-text); line-height:1; }
+    .ae-kpi-badge {
+      display:inline-flex; align-items:center; gap:3px;
+      padding:2px 7px; border-radius:20px;
+      font-size:10.5px; font-weight:600; margin-top:7px;
+    }
+    .ae-kpi-badge.up   { background:#d0f5e6; color:#009952; }
+    .ae-kpi-badge.down { background:#fde8e8; color:#c0392b; }
+
+    /* ── Charts Row ── */
+    .ae-row2 { display:grid; grid-template-columns:2fr 1fr; gap:18px; margin-bottom:22px; }
+
+    .ae-card {
+      background:var(--ae-surface); border-radius:var(--ae-radius);
+      border:1px solid var(--ae-border); box-shadow:var(--ae-shadow); overflow:hidden;
+    }
+    .ae-card-head {
+      padding:14px 18px 11px; border-bottom:1px solid var(--ae-border);
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .ae-card-title { font-family:'Montserrat',sans-serif; font-size:13px; font-weight:700; color:var(--ae-text); }
+    .ae-card-sub   { font-size:11px; color:var(--ae-muted); margin-top:1px; }
+    .ae-card-body  { padding:14px 18px; }
+
+    .ae-legend { display:flex; gap:12px; }
+    .ae-leg-item { display:flex; align-items:center; gap:5px; font-size:11px; color:var(--ae-muted); }
+    .ae-leg-dot  { width:8px; height:8px; border-radius:50%; }
+
+    /* Trust bars */
+    .ae-trust-list { display:flex; flex-direction:column; gap:9px; margin-top:6px; }
+    .ae-trust-row  { display:flex; align-items:center; gap:8px; }
+    .ae-trust-lbl  { font-size:11px; color:var(--ae-muted); flex:0 0 120px; }
+    .ae-trust-track{ flex:1; background:var(--ae-bg2); border-radius:4px; height:6px; }
+    .ae-trust-fill { height:6px; border-radius:4px; }
+    .ae-trust-pct  { font-size:11px; font-weight:700; color:var(--ae-text); min-width:32px; text-align:right; }
+
+    /* Donut wrap */
+    .ae-donut-wrap   { position:relative; display:flex; justify-content:center; }
+    .ae-donut-center {
+      position:absolute; top:50%; left:50%;
+      transform:translate(-50%,-50%); text-align:center; pointer-events:none;
+    }
+    .ae-donut-center .dv { font-family:'Montserrat',sans-serif; font-size:20px; font-weight:800; color:var(--ae-blue); }
+    .ae-donut-center .dl { font-size:9px; text-transform:uppercase; letter-spacing:.5px; color:var(--ae-muted); }
+
+    /* ── Bottom Row ── */
+    .ae-row3 { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:10px; }
+
+    .ae-table { width:100%; border-collapse:collapse; }
+    .ae-table thead th {
+      padding:8px 11px; font-size:10px; font-weight:700;
+      text-transform:uppercase; letter-spacing:.6px;
+      color:var(--ae-muted); background:var(--ae-bg);
+      border-bottom:1px solid var(--ae-border); text-align:left;
+    }
+    .ae-table tbody td {
+      padding:10px 11px; font-size:12px; color:var(--ae-text);
+      border-bottom:1px solid var(--ae-bg2);
+    }
+    .ae-table tbody tr:last-child td { border-bottom:none; }
+    .ae-table tbody tr:hover td { background:var(--ae-bg); }
+
+    .ae-badge {
+      display:inline-flex; align-items:center; gap:3px;
+      padding:2px 8px; border-radius:20px; font-size:10px; font-weight:600;
+    }
+    .ae-badge.sold     { background:#d0f5e6; color:#009952; }
+    .ae-badge.pending  { background:#fff3d4; color:#c08000; }
+    .ae-badge.incoming { background:#deeeff; color:#0055d4; }
+    .ae-order-id { font-weight:700; color:var(--ae-blue2); }
+
+    /* Top cars */
+    .ae-cars { display:flex; flex-direction:column; gap:9px; }
+    .ae-car-item {
+      display:flex; align-items:center; gap:10px;
+      padding:10px 11px;
+      background:var(--ae-bg); border:1px solid var(--ae-border); border-radius:10px;
+      transition:box-shadow .2s;
+    }
+    .ae-car-item:hover { box-shadow:0 4px 14px rgba(0,80,200,.10); }
+    .ae-car-rank {
+      width:24px; height:24px; border-radius:6px;
+      display:flex; align-items:center; justify-content:center;
+      font-size:11px; font-weight:800; font-family:'Montserrat',sans-serif; flex-shrink:0;
+    }
+    .ae-car-rank.r1 { background:linear-gradient(135deg,#f7c948,#e8a200); color:#fff; }
+    .ae-car-rank.r2 { background:linear-gradient(135deg,#c0ccd6,#8090a0); color:#fff; }
+    .ae-car-rank.r3 { background:linear-gradient(135deg,#d4845a,#a84020); color:#fff; }
+    .ae-car-rank.rn { background:var(--ae-bg2); color:var(--ae-muted); }
+    .ae-car-emoji   { font-size:22px; flex-shrink:0; line-height:1; }
+    .ae-car-info    { flex:1; min-width:0; }
+    .ae-car-name    { font-size:12px; font-weight:600; color:var(--ae-text); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .ae-car-brand   { font-size:10.5px; color:var(--ae-muted); margin-top:1px; }
+    .ae-car-right   { text-align:right; flex-shrink:0; }
+    .ae-car-price   { font-family:'Montserrat',sans-serif; font-size:12.5px; font-weight:700; color:var(--ae-blue); }
+    .ae-car-views   { font-size:10px; color:var(--ae-muted); margin-top:1px; }
+
+    .ae-view-all { font-size:11.5px; color:var(--ae-blue2); text-decoration:none; font-weight:600; }
+    .ae-view-all:hover { text-decoration:underline; }
+
+    /* ── Responsive ── */
+    @media(max-width:1200px){
+      .ae-kpi-grid { grid-template-columns:repeat(2,1fr); }
+      .ae-row2, .ae-row3 { grid-template-columns:1fr; }
+    }
+    @media(max-width:768px){
+      .ae-kpi-grid { grid-template-columns:1fr 1fr; }
+      .ae-welcome { flex-direction:column; gap:14px; }
+    }
+
+    @keyframes aeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+    .ae-kpi { animation:aeUp .35s ease both; }
+    .ae-kpi:nth-child(1){animation-delay:.04s}
+    .ae-kpi:nth-child(2){animation-delay:.08s}
+    .ae-kpi:nth-child(3){animation-delay:.12s}
+    .ae-kpi:nth-child(4){animation-delay:.16s}
+    .ae-card { animation:aeUp .38s .15s ease both; }
+  </style>
+</head>
+
+<body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+<div class="app-wrapper">
+
+  <!--begin::Header-->
+  <nav class="app-header navbar navbar-expand bg-body">
+    <div class="container-fluid">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button">
+            <i class="bi bi-list"></i>
+          </a>
+        </li>
+        <li class="nav-item d-none d-md-block">
+          <a href="index.html" class="nav-link">Trang chủ</a>
+        </li>
+        <li class="nav-item d-none d-md-block">
+          <a href="support.html" class="nav-link">Liên hệ</a>
+        </li>
+        <li class="nav-item d-none d-md-block">
+          <a href="../index9.html" class="nav-link fw-semibold" style="color:#1565c0;font-weight:700;">
+            <i class="bi bi-arrow-left-circle me-1"></i>Trang THINHCAR
+          </a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+            <i class="bi bi-search"></i>
+          </a>
+        </li>
+
+        <!--begin::Messages Dropdown-->
+        <li class="nav-item dropdown">
+          <a class="nav-link" data-bs-toggle="dropdown" href="#">
+            <i class="bi bi-chat-text"></i>
+            <span class="navbar-badge badge text-bg-danger">3</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+            <a href="#" class="dropdown-item">
+              <div class="d-flex">
+                <div class="flex-shrink-0">
+                  <img src="dist/assets/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 rounded-circle me-3" />
+                </div>
+                <div class="flex-grow-1">
+                  <h3 class="dropdown-item-title">Brad Diesel <span class="float-end fs-7 text-danger"><i class="bi bi-star-fill"></i></span></h3>
+                  <p class="fs-7">Call me whenever you can...</p>
+                  <p class="fs-7 text-secondary"><i class="bi bi-clock-fill me-1"></i> 4 Hours Ago</p>
+                </div>
+              </div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">
+              <div class="d-flex">
+                <div class="flex-shrink-0">
+                  <img src="dist/assets/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 rounded-circle me-3" />
+                </div>
+                <div class="flex-grow-1">
+                  <h3 class="dropdown-item-title">John Pierce <span class="float-end fs-7 text-secondary"><i class="bi bi-star-fill"></i></span></h3>
+                  <p class="fs-7">I got your message bro</p>
+                  <p class="fs-7 text-secondary"><i class="bi bi-clock-fill me-1"></i> 4 Hours Ago</p>
+                </div>
+              </div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">
+              <div class="d-flex">
+                <div class="flex-shrink-0">
+                  <img src="dist/assets/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 rounded-circle me-3" />
+                </div>
+                <div class="flex-grow-1">
+                  <h3 class="dropdown-item-title">Nora Silvester <span class="float-end fs-7 text-warning"><i class="bi bi-star-fill"></i></span></h3>
+                  <p class="fs-7">The subject goes here</p>
+                  <p class="fs-7 text-secondary"><i class="bi bi-clock-fill me-1"></i> 4 Hours Ago</p>
+                </div>
+              </div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item dropdown-footer">Xem tất cả tin nhắn</a>
+          </div>
+        </li>
+        <!--end::Messages Dropdown-->
+
+        <!--begin::Notifications Dropdown-->
+        <li class="nav-item dropdown">
+          <a class="nav-link" data-bs-toggle="dropdown" href="#">
+            <i class="bi bi-bell-fill"></i>
+            <span class="navbar-badge badge text-bg-warning">15</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+            <span class="dropdown-item dropdown-header">15 Thông báo</span>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item"><i class="bi bi-envelope me-2"></i> 4 tin nhắn mới <span class="float-end text-secondary fs-7">3 phút</span></a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item"><i class="bi bi-people-fill me-2"></i> 8 yêu cầu kết bạn <span class="float-end text-secondary fs-7">12 giờ</span></a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item"><i class="bi bi-file-earmark-fill me-2"></i> 3 báo cáo mới <span class="float-end text-secondary fs-7">2 ngày</span></a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item dropdown-footer">Xem tất cả thông báo</a>
+          </div>
+        </li>
+        <!--end::Notifications Dropdown-->
+
+        <li class="nav-item">
+          <a class="nav-link" href="#" data-lte-toggle="fullscreen">
+            <i data-lte-icon="maximize" class="bi bi-arrows-fullscreen"></i>
+            <i data-lte-icon="minimize" class="bi bi-fullscreen-exit" style="display:none"></i>
+          </a>
+        </li>
+
+        <!--begin::User Menu-->
+        <li class="nav-item dropdown user-menu">
+          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+            <img src="dist/assets/img/avatar.png" class="user-image rounded-circle shadow" alt="User Image" />
+            <span class="d-none d-md-inline">Thịnh Nguyễn</span>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+            <li class="user-header text-bg-primary">
+              <img src="dist/assets/img/avatar.png" class="rounded-circle shadow" alt="User Image" />
+              <p>Thịnh Nguyễn <small>Thành viên từ tháng 5/2026</small></p>
+            </li>
+            <li class="user-body">
+              <div class="row">
+                <div class="col-4 text-center"><a href="#">Theo dõi</a></div>
+                <div class="col-4 text-center"><a href="#">Doanh số</a></div>
+                <div class="col-4 text-center"><a href="#">Bạn bè</a></div>
+              </div>
+            </li>
+            <li class="user-footer">
+              <a href="#" class="btn btn-outline-secondary">Hồ sơ</a>
+              <a href="#" class="btn btn-outline-danger float-end">Đăng xuất</a>
+            </li>
+          </ul>
+        </li>
+        <!--end::User Menu-->
+      </ul>
+    </div>
+  </nav>
+  <!--end::Header-->
+
+  <!--begin::Sidebar — Giữ nguyên cấu trúc AdminLTE, chỉ xóa mục Thống kê hệ thống-->
+  <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
+    <div class="sidebar-brand">
+      <a href="./index.html" class="brand-link">
+        <img src="dist/assets/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image opacity-75 shadow" />
+        <span class="brand-text fw-light">THINHCAR</span>
+      </a>
+    </div>
+    <div class="sidebar-wrapper">
+      <nav class="mt-2">
+        <ul class="nav sidebar-menu flex-column"
+            data-lte-toggle="treeview"
+            role="navigation"
+            aria-label="Main navigation"
+            data-accordion="false"
+            id="navigation">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link active">
+              <i class="nav-icon bi bi-house-fill"></i>
+              <p>Trang chủ</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon bi bi-box-seam-fill"></i>
+              <p>
+                Danh mục
+                <i class="nav-arrow bi bi-chevron-right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="products.html" class="nav-link">
+                  <i class="nav-icon bi bi-car-front"></i>
+                  <p>Sản phẩm</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="about.html" class="nav-link">
+                  <i class="nav-icon bi bi-people"></i>
+                  <p>nhân viên</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="support.html" class="nav-link">
+                  <i class="nav-icon bi bi-chat-dots"></i>
+                  <p>Hỗ trợ khách hàng</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <!-- Đã xóa: mục Thống kê hệ thống (doanh thu & bảng lương nhân viên) -->
+        </ul>
+      </nav>
+    </div>
+  </aside>
+  <!--end::Sidebar-->
+
+  <!--begin::App Main-->
+  <main class="app-main">
+    <div class="app-content-header">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-6">
+            <h3 class="mb-0">Tổng Quan Showroom</h3>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-end">
+              <li class="breadcrumb-item"><a href="index.html">Trang chủ</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="app-content">
+      <div class="container-fluid">
+
+        <!-- Welcome Banner -->
+        <div class="ae-welcome">
+          <div class="ae-welcome-text">
+            <h2>🚗 AutoElite Showroom Admin</h2>
+            <p>Hệ thống quản trị trưng bày &amp; kinh doanh ô tô cao cấp — Cập nhật theo thời gian thực</p>
+          </div>
+          <div class="ae-welcome-clock">
+            <div class="ae-date" id="ae-date">--/--/----</div>
+            <div class="ae-time" id="ae-time">--:--:--</div>
+          </div>
+        </div>
+
+        <!-- KPI Cards -->
+        <div class="ae-kpi-grid">
+          <div class="ae-kpi c-blue">
+            <div class="ae-kpi-icon"><i class="bi bi-currency-dollar"></i></div>
+            <div class="ae-kpi-label">Doanh thu tháng này</div>
+            <div class="ae-kpi-value">12,4 tỷ</div>
+            <div class="ae-kpi-badge up"><i class="bi bi-arrow-up-short"></i>+18,3% so tháng trước</div>
+          </div>
+          <div class="ae-kpi c-teal">
+            <div class="ae-kpi-icon"><i class="bi bi-car-front-fill"></i></div>
+            <div class="ae-kpi-label">Xe đã bán tháng này</div>
+            <div class="ae-kpi-value">47 xe</div>
+            <div class="ae-kpi-badge up"><i class="bi bi-arrow-up-short"></i>+12 xe so kỳ trước</div>
+          </div>
+          <div class="ae-kpi c-green">
+            <div class="ae-kpi-icon"><i class="bi bi-person-check-fill"></i></div>
+            <div class="ae-kpi-label">Khách hàng tin tưởng</div>
+            <div class="ae-kpi-value">96,4%</div>
+            <div class="ae-kpi-badge up"><i class="bi bi-arrow-up-short"></i>+1,2 điểm kỳ trước</div>
+          </div>
+          <div class="ae-kpi c-amber">
+            <div class="ae-kpi-icon"><i class="bi bi-eye-fill"></i></div>
+            <div class="ae-kpi-label">Lượt xem showroom</div>
+            <div class="ae-kpi-value">8.241</div>
+            <div class="ae-kpi-badge down"><i class="bi bi-arrow-down-short"></i>-3,1% hôm qua</div>
+          </div>
+        </div>
+
+        <!-- Charts Row -->
+        <div class="ae-row2">
+
+          <!-- Revenue Area Chart -->
+          <div class="ae-card">
+            <div class="ae-card-head">
+              <div>
+                <div class="ae-card-title">Biểu Đồ Doanh Thu &amp; Xe Bán Ra</div>
+                <div class="ae-card-sub">Tổng hợp 6 tháng gần nhất (tỷ đồng / xe)</div>
+              </div>
+              <div class="ae-legend">
+                <div class="ae-leg-item"><div class="ae-leg-dot" style="background:#1a7fe8"></div>Doanh thu</div>
+                <div class="ae-leg-item"><div class="ae-leg-dot" style="background:#00c2b8"></div>Xe bán</div>
+              </div>
+            </div>
+            <div class="ae-card-body">
+              <div id="ae-revenue-chart"></div>
+            </div>
+          </div>
+
+          <!-- Trust Donut -->
+          <div class="ae-card">
+            <div class="ae-card-head">
+              <div>
+                <div class="ae-card-title">Độ Tin Cậy Khách Hàng</div>
+                <div class="ae-card-sub">Phân tích phản hồi &amp; đánh giá</div>
+              </div>
+            </div>
+            <div class="ae-card-body">
+              <div class="ae-donut-wrap">
+                <div id="ae-trust-donut"></div>
+                <div class="ae-donut-center">
+                  <div class="dv">96,4%</div>
+                  <div class="dl">Hài lòng</div>
+                </div>
+              </div>
+              <div class="ae-trust-list">
+                <div class="ae-trust-row">
+                  <div class="ae-trust-lbl">Dịch vụ bán hàng</div>
+                  <div class="ae-trust-track"><div class="ae-trust-fill" style="width:97%;background:linear-gradient(90deg,#1a7fe8,#3d9eff)"></div></div>
+                  <div class="ae-trust-pct">97%</div>
+                </div>
+                <div class="ae-trust-row">
+                  <div class="ae-trust-lbl">Chất lượng xe</div>
+                  <div class="ae-trust-track"><div class="ae-trust-fill" style="width:95%;background:linear-gradient(90deg,#00c2b8,#00e5d8)"></div></div>
+                  <div class="ae-trust-pct">95%</div>
+                </div>
+                <div class="ae-trust-row">
+                  <div class="ae-trust-lbl">Giá cả hợp lý</div>
+                  <div class="ae-trust-track"><div class="ae-trust-fill" style="width:91%;background:linear-gradient(90deg,#00b96b,#00e690)"></div></div>
+                  <div class="ae-trust-pct">91%</div>
+                </div>
+                <div class="ae-trust-row">
+                  <div class="ae-trust-lbl">Hậu mãi &amp; bảo hành</div>
+                  <div class="ae-trust-track"><div class="ae-trust-fill" style="width:88%;background:linear-gradient(90deg,#f7a000,#ffd250)"></div></div>
+                  <div class="ae-trust-pct">88%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Bottom Row -->
+        <div class="ae-row3">
+
+          <!-- Giao dịch gần đây -->
+          <div class="ae-card">
+            <div class="ae-card-head">
+              <div>
+                <div class="ae-card-title">Giao Dịch Gần Đây</div>
+                <div class="ae-card-sub">Các đơn hàng mới nhất</div>
+              </div>
+              <a href="products.html" class="ae-view-all">Xem tất cả →</a>
+            </div>
+            <div style="overflow-x:auto">
+              <table class="ae-table">
+                <thead>
+                  <tr>
+                    <th>Mã ĐH</th>
+                    <th>Xe</th>
+                    <th>Khách hàng</th>
+                    <th>Giá trị</th>
+                    <th>Trạng thái</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="ae-order-id">#AE-0091</span></td>
+                    <td>Mercedes GLC 300</td>
+                    <td>Nguyễn Văn Hùng</td>
+                    <td><b>2,85 tỷ</b></td>
+                    <td><span class="ae-badge sold">✓ Đã bán</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="ae-order-id">#AE-0090</span></td>
+                    <td>BMW 530i M-Sport</td>
+                    <td>Trần Thị Lan Anh</td>
+                    <td><b>3,19 tỷ</b></td>
+                    <td><span class="ae-badge sold">✓ Đã bán</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="ae-order-id">#AE-0089</span></td>
+                    <td>Toyota Fortuner 2.7</td>
+                    <td>Lê Minh Quân</td>
+                    <td><b>1,28 tỷ</b></td>
+                    <td><span class="ae-badge pending">⏳ Chờ thanh toán</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="ae-order-id">#AE-0088</span></td>
+                    <td>Audi Q5 45 TFSI</td>
+                    <td>Phạm Đức Thành</td>
+                    <td><b>2,57 tỷ</b></td>
+                    <td><span class="ae-badge incoming">◉ Mới nhập</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="ae-order-id">#AE-0087</span></td>
+                    <td>Honda CR-V L 2025</td>
+                    <td>Vũ Thanh Hoa</td>
+                    <td><b>1,09 tỷ</b></td>
+                    <td><span class="ae-badge sold">✓ Đã bán</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="ae-order-id">#AE-0086</span></td>
+                    <td>Porsche Cayenne S</td>
+                    <td>Đỗ Quốc Bảo</td>
+                    <td><b>6,30 tỷ</b></td>
+                    <td><span class="ae-badge pending">⏳ Chờ thanh toán</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Xe bán chạy nhất -->
+          <div class="ae-card">
+            <div class="ae-card-head">
+              <div>
+                <div class="ae-card-title">Xe Bán Chạy Nhất</div>
+                <div class="ae-card-sub">Theo lượt xem &amp; doanh số tháng 5/2026</div>
+              </div>
+              <a href="products.html" class="ae-view-all">Xem thêm →</a>
+            </div>
+            <div class="ae-card-body">
+              <div class="ae-cars">
+                <div class="ae-car-item">
+                  <div class="ae-car-rank r1">1</div>
+                  <div class="ae-car-emoji">🏎️</div>
+                  <div class="ae-car-info">
+                    <div class="ae-car-name">Mercedes GLC 300 4MATIC</div>
+                    <div class="ae-car-brand">Mercedes-Benz · SUV hạng sang</div>
+                  </div>
+                  <div class="ae-car-right">
+                    <div class="ae-car-price">2,85 tỷ</div>
+                    <div class="ae-car-views">🔥 2.340 lượt</div>
+                  </div>
+                </div>
+                <div class="ae-car-item">
+                  <div class="ae-car-rank r2">2</div>
+                  <div class="ae-car-emoji">🚗</div>
+                  <div class="ae-car-info">
+                    <div class="ae-car-name">BMW 530i M-Sport 2025</div>
+                    <div class="ae-car-brand">BMW · Sedan thể thao</div>
+                  </div>
+                  <div class="ae-car-right">
+                    <div class="ae-car-price">3,19 tỷ</div>
+                    <div class="ae-car-views">👁 1.912 lượt</div>
+                  </div>
+                </div>
+                <div class="ae-car-item">
+                  <div class="ae-car-rank r3">3</div>
+                  <div class="ae-car-emoji">🚙</div>
+                  <div class="ae-car-info">
+                    <div class="ae-car-name">Porsche Cayenne S 2025</div>
+                    <div class="ae-car-brand">Porsche · SUV siêu cao cấp</div>
+                  </div>
+                  <div class="ae-car-right">
+                    <div class="ae-car-price">6,30 tỷ</div>
+                    <div class="ae-car-views">⭐ 1.670 lượt</div>
+                  </div>
+                </div>
+                <div class="ae-car-item">
+                  <div class="ae-car-rank rn">4</div>
+                  <div class="ae-car-emoji">🚘</div>
+                  <div class="ae-car-info">
+                    <div class="ae-car-name">Audi Q5 45 TFSI Quattro</div>
+                    <div class="ae-car-brand">Audi · SUV hạng sang</div>
+                  </div>
+                  <div class="ae-car-right">
+                    <div class="ae-car-price">2,57 tỷ</div>
+                    <div class="ae-car-views">👁 1.489 lượt</div>
+                  </div>
+                </div>
+                <div class="ae-car-item">
+                  <div class="ae-car-rank rn">5</div>
+                  <div class="ae-car-emoji">🏁</div>
+                  <div class="ae-car-info">
+                    <div class="ae-car-name">Toyota Fortuner Legender</div>
+                    <div class="ae-car-brand">Toyota · SUV bán chạy</div>
+                  </div>
+                  <div class="ae-car-right">
+                    <div class="ae-car-price">1,28 tỷ</div>
+                    <div class="ae-car-views">👁 1.201 lượt</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- end bottom row -->
+
+      </div>
+    </div>
+  </main>
+  <!--end::App Main-->
+
+  <!--begin::Footer-->
+  <footer class="app-footer">
+    <div class="float-end d-none d-sm-inline">AutoElite Admin v2.1</div>
+    <strong>© 2026 <a href="#" class="text-decoration-none">AutoElite Showroom</a>.</strong> Bảo lưu mọi quyền.
+  </footer>
+  <!--end::Footer-->
+
+</div>
+<!--end::App Wrapper-->
+
+<!--begin::Scripts-->
+<script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/browser/overlayscrollbars.browser.es6.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+<script src="dist/js/adminlte.js"></script>
+
+<script>
+  // OverlayScrollbars
+  const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
+  const Default = { scrollbarTheme:'os-theme-light', scrollbarAutoHide:'leave', scrollbarClickScroll:true };
+  document.addEventListener('DOMContentLoaded', function () {
+    const sidebarWrapper = document.querySelector(SELECTOR_SIDEBAR_WRAPPER);
+    const isMobile = window.innerWidth <= 992;
+    if (sidebarWrapper && OverlayScrollbarsGlobal?.OverlayScrollbars !== undefined && !isMobile) {
+      OverlayScrollbarsGlobal.OverlayScrollbars(sidebarWrapper, {
+        scrollbars: { theme: Default.scrollbarTheme, autoHide: Default.scrollbarAutoHide, clickScroll: Default.scrollbarClickScroll }
+      });
+    }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.min.js"
+  integrity="sha256-+vh8GkaU7C9/wbSLIcwq82tQ2wTf44aOHA8HlBMwRI8=" crossorigin="anonymous"></script>
+
+<script>
+  // Live clock
+  function aeClock(){
+    const n = new Date();
+    document.getElementById('ae-date').textContent = n.toLocaleDateString('vi-VN');
+    document.getElementById('ae-time').textContent = n.toLocaleTimeString('vi-VN');
+  }
+  setInterval(aeClock,1000); aeClock();
+
+  // Revenue Area Chart
+  new ApexCharts(document.querySelector('#ae-revenue-chart'), {
+    series:[
+      { name:'Doanh thu (tỷ đồng)', data:[6.2,7.8,8.1,10.4,9.7,12.4] },
+      { name:'Xe bán ra',           data:[22,31,28,42,38,47] }
+    ],
+    chart:{ type:'area', height:230, toolbar:{show:false}, zoom:{enabled:false}, fontFamily:'Source Sans 3, sans-serif' },
+    colors:['#1a7fe8','#00c2b8'],
+    stroke:{ curve:'smooth', width:2.5 },
+    fill:{ type:'gradient', gradient:{ shadeIntensity:1, opacityFrom:0.25, opacityTo:0.02, stops:[0,95] } },
+    dataLabels:{ enabled:false },
+    legend:{ show:false },
+    xaxis:{
+      categories:['T12/2025','T1/2026','T2/2026','T3/2026','T4/2026','T5/2026'],
+      labels:{ style:{ fontSize:'11px', colors:'#6b80a3' } },
+      axisBorder:{ show:false }, axisTicks:{ show:false }
+    },
+    yaxis:{ labels:{ style:{ fontSize:'11px', colors:'#6b80a3' } } },
+    grid:{ borderColor:'#e2eeff', strokeDashArray:4 },
+    tooltip:{ theme:'light' }
+  }).render();
+
+  // Trust Donut
+  new ApexCharts(document.querySelector('#ae-trust-donut'), {
+    series:[97,95,91,88],
+    chart:{ type:'donut', height:160, toolbar:{show:false} },
+    colors:['#1a7fe8','#00c2b8','#00b96b','#f7a000'],
+    labels:['Bán hàng','Chất lượng','Giá cả','Hậu mãi'],
+    dataLabels:{ enabled:false },
+    legend:{ show:false },
+    plotOptions:{ pie:{ donut:{ size:'68%', labels:{ show:false } } } },
+    stroke:{ width:2 },
+    tooltip:{ theme:'light' }
+  }).render();
+</script>
+<!--end::Scripts-->
+
+<script>
+// Admin protection: redirect to THINHCAR if not logged in as admin
+(function(){
+  var user = localStorage.getItem('thinhcar_user');
+  if(user !== 'admin'){
+    alert('Bạn không có quyền truy cập trang quản trị. Vui lòng đăng nhập bằng tài khoản admin.');
+    window.location.href = '../index9.html';
+  }
+  // Update logout button href
+  document.addEventListener('DOMContentLoaded', function(){
+    var logoutBtn = document.querySelector('.user-footer .btn-outline-danger');
+    if(logoutBtn){
+      logoutBtn.addEventListener('click', function(e){
+        e.preventDefault();
+        localStorage.removeItem('thinhcar_user');
+        window.location.href = '../index9.html';
+      });
+    }
+  });
+})();
+</script>
+</body>
+</html>

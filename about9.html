@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<style>
+/* ===== THINHCAR AUTH ===== */
+.tc-auth-wrap { display:inline-block; position:relative; vertical-align:middle; margin-left:14px; }
+.tc-login-btn {
+  background:transparent; border:2px solid rgba(255,255,255,0.8);
+  color:#fff; padding:5px 15px; border-radius:4px;
+  font-size:13px; font-family:'Open Sans',sans-serif;
+  cursor:pointer; letter-spacing:0.4px;
+  transition:background .2s;
+}
+.tc-login-btn:hover { background:rgba(255,255,255,0.18); }
+.tc-user-btn {
+  background:rgba(46,125,50,0.95); border:2px solid #43a047;
+  color:#fff; padding:5px 15px; border-radius:4px;
+  font-size:13px; font-family:'Open Sans',sans-serif;
+  cursor:pointer; font-weight:700; letter-spacing:0.4px;
+  transition:background .2s;
+}
+.tc-user-btn:hover { background:#2e7d32; }
+.tc-dropdown {
+  display:none; position:absolute; right:0; top:calc(100% + 8px);
+  background:#fff; border-radius:7px;
+  box-shadow:0 6px 24px rgba(0,0,0,0.18);
+  min-width:178px; z-index:99999; overflow:hidden;
+}
+.tc-dropdown.open { display:block; }
+.tc-dropdown a, .tc-dropdown button {
+  display:block; width:100%; text-align:left;
+  padding:11px 17px; background:none; border:none;
+  color:#333; font-size:13.5px;
+  font-family:'Open Sans',sans-serif; cursor:pointer;
+  text-decoration:none; transition:background .15s; box-sizing:border-box;
+}
+.tc-dropdown a:hover, .tc-dropdown button:hover { background:#f1f8f1; color:#2e7d32; }
+.tc-dd-divider { height:1px; background:#eee; }
+
+/* Modal */
+.tc-overlay {
+  display:none; position:fixed; inset:0;
+  background:rgba(0,0,0,0.55); z-index:999999;
+  align-items:center; justify-content:center;
+}
+.tc-overlay.open { display:flex; }
+.tc-modal {
+  background:#fff; border-radius:11px;
+  padding:36px 34px 28px; width:100%; max-width:360px;
+  box-shadow:0 14px 50px rgba(0,0,0,0.22); position:relative;
+  animation:tcIn .22s ease;
+}
+@keyframes tcIn { from{opacity:0;transform:translateY(-16px)} to{opacity:1;transform:translateY(0)} }
+.tc-close {
+  position:absolute; top:12px; right:15px;
+  background:none; border:none; font-size:22px;
+  color:#aaa; cursor:pointer; line-height:1;
+}
+.tc-close:hover { color:#333; }
+.tc-modal-brand { font-size:18px; font-weight:800; color:#2e7d32;
+  font-family:'Open Sans',sans-serif; letter-spacing:1px; margin-bottom:16px; }
+.tc-modal h3 { margin:0 0 4px; font-size:19px; color:#222;
+  font-family:'Open Sans',sans-serif; font-weight:700; }
+.tc-modal-sub { margin:0 0 20px; font-size:12.5px; color:#999;
+  font-family:'Open Sans',sans-serif; }
+.tc-modal label { display:block; font-size:12.5px; color:#555;
+  margin-bottom:5px; font-family:'Open Sans',sans-serif; }
+.tc-modal input {
+  width:100%; padding:10px 12px; border:1.5px solid #ddd;
+  border-radius:5px; font-size:14px; font-family:'Open Sans',sans-serif;
+  margin-bottom:14px; box-sizing:border-box; outline:none;
+  transition:border-color .2s;
+}
+.tc-modal input:focus { border-color:#43a047; }
+.tc-err { color:#c0392b; font-size:12.5px; margin:-8px 0 10px;
+  display:none; font-family:'Open Sans',sans-serif; }
+.tc-err.show { display:block; }
+.tc-submit {
+  width:100%; padding:11px; background:#2e7d32; color:#fff;
+  border:none; border-radius:5px; font-size:15px;
+  font-family:'Open Sans',sans-serif; font-weight:700;
+  cursor:pointer; transition:background .2s;
+}
+.tc-submit:hover { background:#1b5e20; }
+
+/* ===== FIX NAV WRAP ===== */
+.tm-nav-ul {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  white-space: nowrap !important;
+}
+.tm-nav-li {
+  white-space: nowrap !important;
+}
+.tm-nav-link {
+  white-space: nowrap !important;
+  display: inline-block !important;
+}
+</style>
+
+	<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>THINHCAR - Giới thiệu</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet" />
+    <link href="css/all.min.css" rel="stylesheet" />
+	<link href="css/templatemo-style.css" rel="stylesheet" />
+</head>
+<!--
+
+Simple House
+
+https://templatemo.com/tm-539-simple-house
+
+-->
+<body> 
+
+	<div class="container">
+	<!-- Top box -->
+		<!-- Logo & Site Name -->
+		<div class="placeholder">
+			<div class="parallax-window" data-parallax="scroll" data-image-src="img/thinhcar-01.jpg">
+				<div class="tm-header">
+					<div class="row tm-header-inner">
+						<div class="col-md-6 col-12">
+							<img src="img/thinhcar-logo.png" alt="Logo"
+								 style="width:148px;height:auto;position:relative;top:18px;margin-right:-38px;">
+							<div class="tm-site-text-box">
+								<h1 class="tm-site-title">THINHCAR</h1>
+								<h6 class="tm-site-description">Uy tín tạo nên thương hiệu</h6>	
+							</div>
+						</div>
+						<nav class="col-md-6 col-12 tm-nav">
+							<ul class="tm-nav-ul">
+								<li class="tm-nav-li"><a href="index9.html" class="tm-nav-link">Trang chủ</a></li>
+								<li class="tm-nav-li"><a href="about9.html" class="tm-nav-link active">Giới thiệu</a></li>
+								<li class="tm-nav-li"><a href="contact9.html" class="tm-nav-link">Liên hệ</a></li>
+							<li class="tm-nav-li"><span class="tc-auth-wrap" id="tc-auth-wrap"></span></li>
+							</ul>
+						</nav>	
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<main>
+			<header class="row tm-welcome-section">
+				<h2 class="col-12 text-center tm-section-title">Về THINHCAR</h2>
+				<p class="col-12 text-center">
+					THINHCAR là showroom chuyên cung cấp các dòng xe chất lượng cao tại Việt Nam.
+					Chúng tôi cam kết mang đến giá tốt, thủ tục nhanh và dịch vụ tận tâm.
+				</p>
+			</header>
+
+			<div class="tm-container-inner tm-persons">
+				<div class="row">
+					<article class="col-lg-6">
+						<figure class="tm-person">
+							<img src="img/about-1.5.1.jpg" alt="Image" class="img-fluid tm-person-img" />
+							<figcaption class="tm-person-description">
+								<h4 class="tm-person-name">Johnny cage</h4>
+								<p class="tm-person-title">Nhà sáng lập & Giám đốc</p>
+								<p class="tm-person-about">Người định hướng phát triển thương hiệu THINHCAR với tiêu chí uy tín hàng đầu.</p>
+								<div>
+									<a href="https://fb.com" class="tm-social-link"><i class="fab fa-facebook tm-social-icon"></i></a>
+									<a href="https://twitter.com" class="tm-social-link"><i class="fab fa-twitter tm-social-icon"></i></a>
+									<a href="https://instagram.com" class="tm-social-link"><i class="fab fa-instagram tm-social-icon"></i></a>
+								</div>
+							</figcaption>
+						</figure>
+					</article>
+					<article class="col-lg-6">
+						<figure class="tm-person">
+							<img src="img/about-2.5.1.jpg" alt="Image" class="img-fluid tm-person-img" />
+							<figcaption class="tm-person-description">
+								<h4 class="tm-person-name">Bryan Cranston</h4>
+								<p class="tm-person-title">Trưởng phòng kinh doanh</p>
+								<p class="tm-person-about">Quản lý đội ngũ kinh doanh, xây dựng chiến lược bán xe và đảm bảo doanh số phát triển bền vững.</p>
+								<div>
+									<a href="https://fb.com" class="tm-social-link"><i class="fab fa-facebook tm-social-icon"></i></a>
+									<a href="https://twitter.com" class="tm-social-link"><i class="fab fa-twitter tm-social-icon"></i></a>
+								</div>
+							</figcaption>
+						</figure>
+					</article>
+					<article class="col-lg-6">
+						<figure class="tm-person">
+							<img src="img/about-3.5.jpg" alt="Image" class="img-fluid tm-person-img" />
+							<figcaption class="tm-person-description">
+								<h4 class="tm-person-name">kevin moskowitz </h4>
+								<p class="tm-person-title">Quản lý vận hành</p>
+								<p class="tm-person-about">Phụ trách kiểm định chất lượng xe và quản lý hoạt động showroom.</p>
+								<div>
+									<a href="https://fb.com" class="tm-social-link"><i class="fab fa-facebook tm-social-icon"></i></a>
+									<a href="https://instagram.com" class="tm-social-link"><i class="fab fa-instagram tm-social-icon"></i></a>
+								</div>
+							</figcaption>
+						</figure>
+					</article>
+					<article class="col-lg-6">
+						<figure class="tm-person">
+							<img src="img/about-4.5.jpg" alt="Image" class="img-fluid tm-person-img" />
+							<figcaption class="tm-person-description">
+								<h4 class="tm-person-name">Linh Nguyễn</h4>
+								<p class="tm-person-title">Chăm sóc khách hàng</p>
+								<p class="tm-person-about">Luôn sẵn sàng hỗ trợ khách hàng trước và sau khi mua xe.</p>
+								<div>
+									<a href="https://fb.com" class="tm-social-link"><i class="fab fa-facebook tm-social-icon"></i></a>
+									<a href="https://twitter.com" class="tm-social-link"><i class="fab fa-twitter tm-social-icon"></i></a>
+									<a href="https://instagram.com" class="tm-social-link"><i class="fab fa-instagram tm-social-icon"></i></a>
+									<a href="https://youtube.com" class="tm-social-link"><i class="fab fa-youtube tm-social-icon"></i></a>
+								</div>
+							</figcaption>
+						</figure>
+					</article>
+				</div>
+			</div>
+			<div class="tm-container-inner tm-featured-image">
+				<div class="row">
+					<div class="col-12">
+						<div class="placeholder-2">
+							<div class="parallax-window-2" data-parallax="scroll" data-image-src="img/about-nen.jpg"></div>		
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="tm-container-inner tm-features">
+				<div class="row">
+					<div class="col-lg-4">
+						<div class="tm-feature">
+							<i class="fas fa-4x fa-car tm-feature-icon"></i>
+							<p class="tm-feature-description">Chúng tôi cam kết cung cấp xe chính hãng 100%, đầy đủ giấy tờ pháp lý, nguồn gốc minh bạch, lịch sử rõ ràng và được kiểm định kỹ thuật nghiêm ngặt trước khi bàn giao đến khách hàng.</p>
+							<a href="contact.html" class="tm-btn tm-btn-primary">Liên hệ ngay</a>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="tm-feature">
+							<i class="fas fa-4x fa-hand-holding-usd tm-feature-icon"></i>
+							<p class="tm-feature-description">Hỗ trợ vay ngân hàng nhanh chóng với thủ tục đơn giản, xét duyệt linh hoạt, nhiều gói trả góp phù hợp thu nhập và mức lãi suất ưu đãi giúp khách hàng dễ dàng sở hữu xe mong muốn.</p>
+							<a href="contact.html" class="tm-btn tm-btn-primary">Liên hệ ngay</a>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="tm-feature">
+							<i class="fas fa-4x fa-shield-alt tm-feature-icon"></i>
+							<p class="tm-feature-description">Dịch vụ bảo hành chuyên nghiệp, bảo dưỡng định kỳ, kiểm tra kỹ thuật toàn diện và hỗ trợ khách hàng tận tâm trước, trong và sau quá trình sử dụng xe.</p>
+							<a href="contact.html" class="tm-btn tm-btn-primary">Liên hệ ngay</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="tm-container-inner tm-history">
+				<div class="row">
+					<div class="col-12">
+						<div class="tm-history-inner">
+							<img src="img/about-m1.jpg" alt="Image" class="img-fluid tm-history-img" />
+							<div class="tm-history-text"> 
+								<h4 class="tm-history-title">Hành trình phát triển THINHCAR</h4>
+								<p class="tm-mb-p">THINHCAR khởi đầu với mong muốn mang đến cho khách hàng Việt Nam những chiếc xe tốt nhất với giá hợp lý.</p>
+								<p>Sau nhiều năm phát triển, THINHCAR đã trở thành địa chỉ mua bán xe uy tín được nhiều khách hàng tin tưởng.</p>
+							</div>
+						</div>	
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<footer class="tm-footer text-center">
+			<p>
+				Copyright © 2026 THINHCAR
+
+				| Thiết kế bởi Thịnh
+			</p>
+		</footer>
+	</div>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/parallax.min.js"></script>
+
+<!-- THINHCAR Login Modal -->
+<div class="tc-overlay" id="tc-overlay">
+  <div class="tc-modal">
+    <button class="tc-close" id="tc-close">&times;</button>
+    <div class="tc-modal-brand">THINHCAR</div>
+    <h3>Đăng nhập</h3>
+    <p class="tc-modal-sub">Uy tín tạo nên thương hiệu</p>
+    <label for="tc-user">Tên đăng nhập</label>
+    <input type="text" id="tc-user" placeholder="Nhập tên đăng nhập" />
+    <label for="tc-pass">Mật khẩu</label>
+    <input type="password" id="tc-pass" placeholder="Nhập mật khẩu" />
+    <div class="tc-err" id="tc-err">Tên đăng nhập hoặc mật khẩu không đúng.</div>
+    <button class="tc-submit" id="tc-submit">Đăng nhập</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  function getUser(){ return localStorage.getItem('thinhcar_user'); }
+  function setUser(n){ localStorage.setItem('thinhcar_user', n); }
+  function delUser(){ localStorage.removeItem('thinhcar_user'); }
+  function esc(s){ return s.replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); }
+
+  function renderAuth(){
+    var wrap = document.getElementById('tc-auth-wrap');
+    if(!wrap) return;
+    var user = getUser();
+    if(!user){
+      wrap.innerHTML = '<button class="tc-login-btn" id="tc-open">&#128100; Đăng nhập</button>';
+      document.getElementById('tc-open').onclick = function(){ document.getElementById('tc-overlay').classList.add('open'); setTimeout(function(){document.getElementById('tc-user').focus();},80); };
+    } else {
+      var isAdmin = (user === 'admin');
+      var adminRow = isAdmin ? '<div class="tc-dd-divider"></div><a href="admin/index.html">&#9881; Trang quản trị</a>' : '';
+      wrap.innerHTML =
+        '<button class="tc-user-btn" id="tc-ubtn">&#128100; '+esc(user)+' &#9660;</button>'+
+        '<div class="tc-dropdown" id="tc-dd">'+
+          adminRow+
+          '<div class="tc-dd-divider"></div>'+
+          '<button id="tc-logout">&#128682; Đăng xuất</button>'+
+        '</div>';
+      document.getElementById('tc-ubtn').onclick = function(e){
+        e.stopPropagation();
+        document.getElementById('tc-dd').classList.toggle('open');
+      };
+      document.getElementById('tc-logout').onclick = function(){ delUser(); renderAuth(); };
+    }
+  }
+
+  function doLogin(){
+    var user = document.getElementById('tc-user').value.trim();
+    var pass = document.getElementById('tc-pass').value;
+    var err  = document.getElementById('tc-err');
+    err.classList.remove('show');
+    if(!user||!pass){ err.textContent='Vui lòng nhập đầy đủ thông tin.'; err.classList.add('show'); return; }
+    if(user==='admin' && pass==='888'){ setUser('admin'); closeModal(); renderAuth(); }
+    else if(user!=='admin'){ setUser(user); closeModal(); renderAuth(); }
+    else { err.textContent='Tên đăng nhập hoặc mật khẩu không đúng.'; err.classList.add('show'); }
+  }
+
+  function closeModal(){
+    document.getElementById('tc-overlay').classList.remove('open');
+    document.getElementById('tc-err').classList.remove('show');
+    document.getElementById('tc-user').value='';
+    document.getElementById('tc-pass').value='';
+  }
+
+  document.addEventListener('click', function(e){
+    var dd = document.getElementById('tc-dd');
+    if(dd && !dd.contains(e.target) && e.target.id!=='tc-ubtn') dd.classList.remove('open');
+    var overlay = document.getElementById('tc-overlay');
+    if(overlay && e.target===overlay) closeModal();
+  });
+
+  document.addEventListener('DOMContentLoaded', function(){
+    renderAuth();
+    document.getElementById('tc-close').onclick = closeModal;
+    document.getElementById('tc-submit').onclick = doLogin;
+    document.getElementById('tc-pass').onkeydown = function(e){ if(e.key==='Enter') doLogin(); };
+  });
+})();
+</script>
+
+</body>
+</html>

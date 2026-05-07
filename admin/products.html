@@ -1,0 +1,794 @@
+<!doctype html>
+<html lang="en">
+  <!--begin::Head-->
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>AdminLTE 4 | Simple Tables</title>
+
+    <!--begin::Accessibility Meta Tags-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#007bff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)" />
+    <!--end::Accessibility Meta Tags-->
+
+    <!--begin::Primary Meta Tags-->
+    <meta name="title" content="AdminLTE 4 | Simple Tables" />
+    <meta name="author" content="ColorlibHQ" />
+    <meta
+      name="description"
+      content="AdminLTE is a Free Bootstrap 5 Admin Dashboard, 30 example pages using Vanilla JS. Fully accessible with WCAG 2.1 AA compliance."
+    />
+    <meta
+      name="keywords"
+      content="bootstrap 5, bootstrap, bootstrap 5 admin dashboard, bootstrap 5 dashboard, bootstrap 5 charts, bootstrap 5 calendar, bootstrap 5 datepicker, bootstrap 5 tables, bootstrap 5 datatable, vanilla js datatable, colorlibhq, colorlibhq dashboard, colorlibhq admin dashboard, accessible admin panel, WCAG compliant"
+    />
+    <!--end::Primary Meta Tags-->
+
+    <!--begin::Accessibility Features-->
+    <!-- Skip links will be dynamically added by accessibility.js -->
+    <meta name="supported-color-schemes" content="light dark" />
+    <link rel="preload" href="dist/css/adminlte.css" as="style" />
+    <!--end::Accessibility Features-->
+
+    <!--begin::Fonts-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css"
+      integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q="
+      crossorigin="anonymous"
+      media="print"
+      onload="this.media = 'all'"
+    />
+    <!--end::Fonts-->
+
+    <!--begin::Third Party Plugin(OverlayScrollbars)-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/styles/overlayscrollbars.min.css"
+      crossorigin="anonymous"
+    />
+    <!--end::Third Party Plugin(OverlayScrollbars)-->
+
+    <!--begin::Third Party Plugin(Bootstrap Icons)-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+      crossorigin="anonymous"
+    />
+    <!--end::Third Party Plugin(Bootstrap Icons)-->
+
+    <!--begin::Required Plugin(AdminLTE)-->
+    <link rel="stylesheet" href="dist/css/adminlte.css" />
+    <!--end::Required Plugin(AdminLTE)-->
+  </head>
+  <!--end::Head-->
+  <!--begin::Body-->
+  <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+      <!--begin::App Wrapper-->
+      <div class="app-wrapper">
+          <!--begin::Header-->
+          <nav class="app-header navbar navbar-expand bg-body">
+              <!--begin::Container-->
+              <div class="container-fluid">
+                  <!--begin::Start Navbar Links-->
+                  <ul class="navbar-nav">
+                      <li class="nav-item">
+                          <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button">
+                              <i class="bi bi-list"></i>
+                          </a>
+                      </li>
+                      <li class="nav-item d-none d-md-block">
+                          <a href="#" class="nav-link">Home</a>
+                      </li>
+                      <li class="nav-item d-none d-md-block">
+                          <a href="#" class="nav-link">Contact</a>
+                      </li>
+                  </ul>
+                  <!--end::Start Navbar Links-->
+                  <!--begin::End Navbar Links-->
+                  <ul class="navbar-nav ms-auto">
+                      <!--begin::Navbar Search-->
+                      <li class="nav-item">
+                          <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+                              <i class="bi bi-search"></i>
+                          </a>
+                      </li>
+                      <!--end::Navbar Search-->
+                      <!--begin::Messages Dropdown Menu-->
+                      <li class="nav-item dropdown">
+                          <a class="nav-link" data-bs-toggle="dropdown" href="#">
+                              <i class="bi bi-chat-text"></i>
+                              <span class="navbar-badge badge text-bg-danger">3</span>
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+                              <a href="#" class="dropdown-item">
+                                  <!--begin::Message-->
+                                  <div class="d-flex">
+                                      <div class="flex-shrink-0">
+                                          <img src="dist/assets/img/user1-128x128.jpg"
+                                               alt="User Avatar"
+                                               class="img-size-50 rounded-circle me-3" />
+                                      </div>
+                                      <div class="flex-grow-1">
+                                          <h3 class="dropdown-item-title">
+                                              Brad Diesel
+                                              <span class="float-end fs-7 text-danger">
+                                                  <i class="bi bi-star-fill"></i>
+                                              </span>
+                                          </h3>
+                                          <p class="fs-7">Call me whenever you can...</p>
+                                          <p class="fs-7 text-secondary">
+                                              <i class="bi bi-clock-fill me-1"></i> 4 Hours Ago
+                                          </p>
+                                      </div>
+                                  </div>
+                                  <!--end::Message-->
+                              </a>
+                              <div class="dropdown-divider"></div>
+                              <a href="#" class="dropdown-item">
+                                  <!--begin::Message-->
+                                  <div class="d-flex">
+                                      <div class="flex-shrink-0">
+                                          <img src="dist/assets/img/user8-128x128.jpg"
+                                               alt="User Avatar"
+                                               class="img-size-50 rounded-circle me-3" />
+                                      </div>
+                                      <div class="flex-grow-1">
+                                          <h3 class="dropdown-item-title">
+                                              John Pierce
+                                              <span class="float-end fs-7 text-secondary">
+                                                  <i class="bi bi-star-fill"></i>
+                                              </span>
+                                          </h3>
+                                          <p class="fs-7">I got your message bro</p>
+                                          <p class="fs-7 text-secondary">
+                                              <i class="bi bi-clock-fill me-1"></i> 4 Hours Ago
+                                          </p>
+                                      </div>
+                                  </div>
+                                  <!--end::Message-->
+                              </a>
+                              <div class="dropdown-divider"></div>
+                              <a href="#" class="dropdown-item">
+                                  <!--begin::Message-->
+                                  <div class="d-flex">
+                                      <div class="flex-shrink-0">
+                                          <img src="dist/assets/img/user3-128x128.jpg"
+                                               alt="User Avatar"
+                                               class="img-size-50 rounded-circle me-3" />
+                                      </div>
+                                      <div class="flex-grow-1">
+                                          <h3 class="dropdown-item-title">
+                                              Nora Silvester
+                                              <span class="float-end fs-7 text-warning">
+                                                  <i class="bi bi-star-fill"></i>
+                                              </span>
+                                          </h3>
+                                          <p class="fs-7">The subject goes here</p>
+                                          <p class="fs-7 text-secondary">
+                                              <i class="bi bi-clock-fill me-1"></i> 4 Hours Ago
+                                          </p>
+                                      </div>
+                                  </div>
+                                  <!--end::Message-->
+                              </a>
+                              <div class="dropdown-divider"></div>
+                              <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+                          </div>
+                      </li>
+                      <!--end::Messages Dropdown Menu-->
+                      <!--begin::Notifications Dropdown Menu-->
+                      <li class="nav-item dropdown">
+                          <a class="nav-link" data-bs-toggle="dropdown" href="#">
+                              <i class="bi bi-bell-fill"></i>
+                              <span class="navbar-badge badge text-bg-warning">15</span>
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+                              <span class="dropdown-item dropdown-header">15 Notifications</span>
+                              <div class="dropdown-divider"></div>
+                              <a href="#" class="dropdown-item">
+                                  <i class="bi bi-envelope me-2"></i> 4 new messages
+                                  <span class="float-end text-secondary fs-7">3 mins</span>
+                              </a>
+                              <div class="dropdown-divider"></div>
+                              <a href="#" class="dropdown-item">
+                                  <i class="bi bi-people-fill me-2"></i> 8 friend requests
+                                  <span class="float-end text-secondary fs-7">12 hours</span>
+                              </a>
+                              <div class="dropdown-divider"></div>
+                              <a href="#" class="dropdown-item">
+                                  <i class="bi bi-file-earmark-fill me-2"></i> 3 new reports
+                                  <span class="float-end text-secondary fs-7">2 days</span>
+                              </a>
+                              <div class="dropdown-divider"></div>
+                              <a href="#" class="dropdown-item dropdown-footer"> See All Notifications </a>
+                          </div>
+                      </li>
+                      <!--end::Notifications Dropdown Menu-->
+                      <!--begin::Fullscreen Toggle-->
+                      <li class="nav-item">
+                          <a class="nav-link" href="#" data-lte-toggle="fullscreen">
+                              <i data-lte-icon="maximize" class="bi bi-arrows-fullscreen"></i>
+                              <i data-lte-icon="minimize" class="bi bi-fullscreen-exit" style="display: none"></i>
+                          </a>
+                      </li>
+                      <!--end::Fullscreen Toggle-->
+                      <!--begin::User Menu Dropdown-->
+                      <li class="nav-item dropdown user-menu">
+                          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                              <img src="dist/assets/img/avatar.png"
+                                   class="user-image rounded-circle shadow"
+                                   alt="User Image" />
+                              <span class="d-none d-md-inline">Thịnh Nguyễn</span>
+                          </a>
+                          <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+                              <!--begin::User Image-->
+                              <li class="user-header text-bg-primary">
+                                  <img src="dist/assets/img/avatar.png"
+                                       class="rounded-circle shadow"
+                                       alt="User Image" />
+                                  <p>
+                                      Thịnh Nguyễn
+                                      <small>Member since Nov. 2023</small>
+                                  </p>
+                              </li>
+                              <!--end::User Image-->
+                              <!--begin::Menu Body-->
+                              <li class="user-body">
+                                  <!--begin::Row-->
+                                  <div class="row">
+                                      <div class="col-4 text-center">
+                                          <a href="#">Followers</a>
+                                      </div>
+                                      <div class="col-4 text-center">
+                                          <a href="#">Sales</a>
+                                      </div>
+                                      <div class="col-4 text-center">
+                                          <a href="#">Friends</a>
+                                      </div>
+                                  </div>
+                                  <!--end::Row-->
+                              </li>
+                              <!--end::Menu Body-->
+                              <!--begin::Menu Footer-->
+                              <li class="user-footer">
+                                  <a href="#" class="btn btn-outline-secondary">Profile</a>
+                                  <a href="#" class="btn btn-outline-danger float-end">Sign out</a>
+                              </li>
+                              <!--end::Menu Footer-->
+                          </ul>
+                      </li>
+                      <!--end::User Menu Dropdown-->
+                  </ul>
+                  <!--end::End Navbar Links-->
+              </div>
+              <!--end::Container-->
+          </nav>
+          <!--end::Header-->
+          <!--begin::Sidebar-->
+          <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
+              <!--begin::Sidebar Brand-->
+              <div class="sidebar-brand">
+                  <!--begin::Brand Link-->
+                  <a href="dist/index.html" class="brand-link">
+                      <!--begin::Brand Image-->
+                      <img src="dist/assets/img/AdminLTELogo.png"
+                           alt="AdminLTE Logo"
+                           class="brand-image opacity-75 shadow" />
+                      <!--end::Brand Image-->
+                      <!--begin::Brand Text-->
+                      <span class="brand-text fw-light">THINHCAR</span>
+                      <!--end::Brand Text-->
+                  </a>
+                  <!--end::Brand Link-->
+              </div>
+              <!--end::Sidebar Brand-->
+              <!--begin::Sidebar Wrapper-->
+              <div class="sidebar-wrapper">
+                  <nav class="mt-2">
+                      <!--begin::Sidebar Menu-->
+                      <ul class="nav sidebar-menu flex-column"
+                          data-lte-toggle="treeview"
+                          role="navigation"
+                          aria-label="Main navigation"
+                          data-accordion="false"
+                          id="navigation">
+                          <li class="nav-item">
+                              <a href="index.html" class="nav-link">
+                                  <i class="nav-icon bi bi-house-fill"></i>
+                                  <p>Trang chủ</p>
+                              </a>
+                          </li>
+                          <li class="nav-item user-menu open">
+                              <a href="#" class="nav-link">
+                                  <i class="nav-icon bi bi-box-seam-fill"></i>
+                                  <p>
+                                      Danh mục
+                                      <i class="nav-arrow bi bi-chevron-right"></i>
+                                  </p>
+                              </a>
+                              <ul class="nav nav-treeview">
+                                  <li class="nav-item">
+                                      <a href="products.html" class="nav-link active">
+                                          <i class="nav-icon bi bi-car-front"></i>
+                                          <p>Sản phẩm</p>
+                                      </a>
+                                  </li>
+                                  <li class="nav-item">
+                                      <a href="about.html" class="nav-link">
+                                          <i class="nav-icon bi bi-people"></i>
+                                          <p>nhân viên</p>
+                                      </a>
+                                  </li>
+                                  <li class="nav-item">
+                                      <a href="support.html" class="nav-link">
+                                          <i class="nav-icon bi bi-chat-dots"></i>
+                                          <p>Hỗ trợ khách hàng</p>
+                                      </a>
+                                  </li>
+                              </ul>
+                          </li>
+                      </ul>
+                      <!--end::Sidebar Menu-->
+                  </nav>
+              </div>
+              <!--end::Sidebar Wrapper-->
+          </aside>
+          <!--end::Sidebar-->
+          <!--begin::App Main-->
+          <main class="app-main">
+              <!--begin::App Content Header-->
+              <div class="app-content-header">
+                  <!--begin::Container-->
+                  <div class="container-fluid">
+                      <!--begin::Row-->
+                      <div class="row">
+                          <div class="col-sm-6">
+                              <h3 class="mb-0">Danh sách xe</h3>
+                          </div>
+                          <div class="col-sm-6">
+                              <ol class="breadcrumb float-sm-end">
+                                  <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                  <li class="breadcrumb-item active" aria-current="page">Simple Tables</li>
+                              </ol>
+                          </div>
+                      </div>
+                      <!--end::Row-->
+                  </div>
+                  <!--end::Container-->
+              </div>
+              <!--end::App Content Header-->
+              <!--begin::App Content-->
+              <div class="app-content">
+                  <!--begin::Container-->
+                  <div class="container-fluid">
+                      <!--begin::Row-->
+                      <div class="row">
+                          <div class="col-md-12">
+                              <div class="card mb-4">
+                                  <div class="card-header">
+                                      <h3 class="card-title">Danh sách xe
+                                  </div>
+                                  <!-- /.card-header -->
+                              
+                                  <div class="card-body">
+                                      <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#productInfo">
+                                          Thêm xe
+                                      </button>
+                                      <table id="productList" class="table table-bordered">
+                                          <thead>
+                                              <tr>
+                                                  <th style="width: 10px">#</th>
+                                                  <th>Tên xe</th>
+                                                  <th>giá xe</th>
+                                                  <th>Phân loại xe</th>
+                                                  <th>mô tả xe</th>
+                                                  <th style="width: 120px">Thao tác</th>
+                                              </tr>
+                                          </thead>
+                                          <tbody>
+                                          </tbody>
+                                      </table>
+                                  </div>
+                                  <!-- /.card-body -->
+                              </div>
+                              <!-- /.card -->
+
+
+                          </div>
+                          <!-- /.col -->
+
+                      </div>
+                      <!--end::Row-->
+                  </div>
+                  <!--end::Container-->
+              </div>
+              <!--end::App Content-->
+          </main>
+          <!--end::App Main-->
+          <!--begin::Footer-->
+          <footer class="app-footer">
+              <!--begin::To the end-->
+              <div class="float-end d-none d-sm-inline">Anything you want</div>
+              <!--end::To the end-->
+              <!--begin::Copyright-->
+              <strong>
+                  Copyright &copy; 2014-2026&nbsp;
+                  <a href="https://adminlte.io" class="text-decoration-none">AdminLTE.io</a>.
+              </strong>
+              All rights reserved.
+              <!--end::Copyright-->
+          </footer>
+          <!--end::Footer-->
+      </div>
+      <!--end::App Wrapper-->
+      <!--begin::Script-->
+      <!--begin::Third Party Plugin(OverlayScrollbars)-->
+      <script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/browser/overlayscrollbars.browser.es6.min.js"
+              crossorigin="anonymous"></script>
+      <!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Required Plugin(popperjs for Bootstrap 5)-->
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+              crossorigin="anonymous"></script>
+      <!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js"
+              crossorigin="anonymous"></script>
+      <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
+      <script src="dist/js/adminlte.js"></script>
+      <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
+      <script>
+          const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
+          const Default = {
+          scrollbarTheme: 'os-theme-light',
+          scrollbarAutoHide: 'leave',
+          scrollbarClickScroll: true,
+          };
+          document.addEventListener('DOMContentLoaded', function () {
+          const sidebarWrapper = document.querySelector(SELECTOR_SIDEBAR_WRAPPER);
+
+          // Disable OverlayScrollbars on mobile devices to prevent touch interference
+          const isMobile = window.innerWidth <= 992;
+
+          if (
+          sidebarWrapper &&
+          OverlayScrollbarsGlobal?.OverlayScrollbars !== undefined &&
+          !isMobile
+          ) {
+          OverlayScrollbarsGlobal.OverlayScrollbars(sidebarWrapper, {
+          scrollbars: {
+          theme: Default.scrollbarTheme,
+          autoHide: Default.scrollbarAutoHide,
+          clickScroll: Default.scrollbarClickScroll,
+          },
+          });
+          }
+          });
+      </script>
+      <!--end::OverlayScrollbars Configure-->
+      <!--end::Script-->
+      <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+      <script>
+          $(function () {
+          var productList = [];
+          var editIndex = -1; // -1 = đang thêm mới, >= 0 = đang chỉnh sửa
+
+          var retrievedObject = localStorage.getItem('products');
+          if (retrievedObject != null)
+              productList = JSON.parse(retrievedObject);
+          showProduct();
+
+          // Format giá tiền khi nhập
+          $('#productPrice').on('input', function() {
+              var val = $(this).val().replace(/\D/g, "");
+              var formattedVal = val.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+              $(this).val(formattedVal);
+          });
+
+          // Hiển thị danh sách sản phẩm
+          function showProduct() {
+              $("#productList tbody").html("");
+              for (var i = 0; i < productList.length; i++) {
+                  var p = productList[i];
+                  var htmlProduct = `
+                  <tr class="align-middle">
+                      <td>${i + 1}</td>
+                      <td>${p.name}</td>
+                      <td>${p.price}</td>
+                      <td>${p.category}</td>
+                      <td>${p.description}</td>
+                      <td>
+                          <button class="btn btn-warning btn-sm me-1 btn-edit" data-index="${i}" title="Chỉnh sửa">
+                              <i class="bi bi-pencil-fill"></i>
+                          </button>
+                          <button class="btn btn-danger btn-sm btn-delete" data-index="${i}" title="Xóa">
+                              <i class="bi bi-trash-fill"></i>
+                          </button>
+                      </td>
+                  </tr>`;
+                  $("#productList tbody").append(htmlProduct);
+              }
+          }
+
+          // Reset form và tiêu đề modal
+          function resetForm() {
+              editIndex = -1;
+              $("#exampleModalLabel").text("Thông tin xe");
+              $("#saveProduct").text("Lưu xe");
+              $("#productId").val("");
+              $("#productName").val("");
+              $('#productPicture').val(''); $('#productPicturePath').val(''); $('#productPictureData').val(''); $('#picturePreview').hide(); $('#previewImg').attr('src',''); $('#previewLabel').text('');
+              $("#productPrice").val("");
+              $("#productCategory").val("Xe thể thao");
+              $("#productDescription").val("");
+          }
+
+          // Khi nhấn nút "Thêm xe" → reset form
+          $('[data-bs-target="#productInfo"]').click(function () {
+              resetForm();
+          });
+
+          // Nút Xóa
+          $(document).on('click', '.btn-delete', function () {
+              var index = $(this).data('index');
+              if (confirm('Bạn có chắc muốn xóa xe này không?')) {
+                  productList.splice(index, 1);
+                  localStorage.setItem("products", JSON.stringify(productList));
+                  showProduct();
+              }
+          });
+
+          // Nút Chỉnh sửa → mở modal và điền dữ liệu
+          $(document).on('click', '.btn-edit', function () {
+              var index = $(this).data('index');
+              var p = productList[index];
+              editIndex = index;
+              $("#exampleModalLabel").text("Chỉnh sửa xe");
+              $("#saveProduct").text("Cập nhật xe");
+              $("#productId").val(p.id);
+              $("#productName").val(p.name);
+              $('#productPictureData').val(p.picture);
+              if(p.picture){
+                $('#previewImg').attr('src', p.picture);
+                $('#picturePreview').show();
+                // Nếu là đường dẫn (không phải base64) thì điền vào ô path
+                if(!p.picture.startsWith('data:')){
+                  $('#productPicturePath').val(p.picture);
+                  $('#previewLabel').text('📁 ' + p.picture);
+                } else {
+                  $('#previewLabel').text('⬆ Ảnh đã upload');
+                }
+              } else { $('#picturePreview').hide(); }
+              $("#productPrice").val(p.price);
+              $("#productCategory").val(p.category);
+              $("#productDescription").val(p.description);
+              $("#productInfo").modal('show');
+          });
+
+          // Nút Lưu / Cập nhật
+          $("#saveProduct").click(function () {
+              var pId = $("#productId").val();
+              var pName = $("#productName").val();
+              var pPicture = $('#productPictureData').val();
+              var pPrice = $("#productPrice").val();
+              var pCategory = $("#productCategory").val();
+              var pDescription = $("#productDescription").val();
+
+              var product = {
+                  id: pId,
+                  name: pName,
+                  picture: pPicture,
+                  price: pPrice,
+                  category: pCategory,
+                  description: pDescription
+              };
+
+              if (editIndex >= 0) {
+                  // Cập nhật sản phẩm hiện có
+                  productList[editIndex] = product;
+              } else {
+                  // Thêm sản phẩm mới
+                  productList.push(product);
+              }
+
+              localStorage.setItem("products", JSON.stringify(productList));
+              $("#productInfo").modal('hide');
+              showProduct();
+              resetForm();
+          });
+
+          // Reset form khi đóng modal
+          $('#productInfo').on('hidden.bs.modal', function () {
+              resetForm();
+          });
+
+});
+      </script>
+
+      <!-- Modal -->
+      <div class="modal fade" id="productInfo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">Thông tin xe</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                      <div class="row mb-3">
+                          <label for="productId" class="col-sm-3 col-form-label">Mã xe</label>
+                          <div class="col-sm-9">
+                              <input type="number" class="form-control" id="productId" />
+                          </div>
+                      </div>
+                      <div class="row mb-3">
+                          <label for="productName" class="col-sm-3 col-form-label">Tên xe</label>
+                          <div class="col-sm-9">
+                              <input type="text" class="form-control" id="productName" />
+                          </div>
+                      </div>
+                      <div class="row mb-3">
+                          <label class="col-sm-3 col-form-label">Hình ảnh</label>
+                          <div class="col-sm-9">
+                            <!-- Cách 1: Nhập đường dẫn ảnh có sẵn -->
+                            <div class="input-group mb-2">
+                              <span class="input-group-text" style="font-size:12px;white-space:nowrap;">📁 Đường dẫn</span>
+                              <input type="text" class="form-control" placeholder="VD: camry.jpg" autocomplete="off" id="productPicturePath" />
+                              <button class="btn btn-outline-secondary btn-sm" type="button" id="btnPreviewPath" title="Xem trước ảnh">👁</button>
+                            </div>
+                            <!-- Cách 2: Upload ảnh từ máy tính -->
+                            <div class="input-group mb-2">
+                              <span class="input-group-text" style="font-size:12px;white-space:nowrap;">⬆ Upload</span>
+                              <input type="file" class="form-control" id="productPicture" accept="image/*" />
+                            </div>
+                            <!-- Preview -->
+                            <div id="picturePreview" style="margin-top:6px;display:none;">
+                              <img id="previewImg" src="" alt="Xem trước"
+                                style="max-width:100%;max-height:160px;border-radius:6px;border:1px solid #ddd;object-fit:cover;" />
+                              <div style="font-size:11px;color:#888;margin-top:3px;" id="previewLabel"></div>
+                            </div>
+                            <input type="hidden" id="productPictureData" />
+                          </div>
+                      </div>
+                      <div class="row mb-3">
+                          <label for="productPrice" class="col-sm-3 col-form-label">Giá</label>
+                          <div class="col-sm-9">
+                              <input type="text" class="form-control" id="productPrice" />
+                          </div>
+                      </div>
+                      <div class="row mb-3">
+                          <label for="productCategory" class="col-sm-3 col-form-label">Phân loại</label>
+                          <div class="col-sm-9">
+                              <select class="form-control" id="productCategory">
+                                  <option value="Xe thể thao">Xe thể thao</option>
+                                  <option value="Xe thương mại">Xe thương mại</option>
+                                  <option value="Xe SUV">Xe SUV</option>
+                              </select>
+                          </div>
+                      </div>
+                      <div class="row mb-3">
+                          <label for="productDescription" class="col-sm-3 col-form-label">Mô tả</label>
+                          <div class="col-sm-9">
+                              <textarea class="form-control" id="productDescription" rows="3"></textarea>
+                          </div>
+                      </div>
+                  </div>
+
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                          <button type="button" id="saveProduct" class="btn btn-primary">Lưu xe</button>
+                      </div>
+                  </div>
+          </div>
+      </div>
+  
+<script>
+// ===== ĐỒNG BỘ SẢN PHẨM -> index9.html qua localStorage =====
+// Mỗi khi productList thay đổi, ghi vào 'products' (đã có) 
+// index9.html sẽ đọc từ 'products' để hiển thị
+// (Không cần thêm gì, products.html đã lưu vào localStorage['products'])
+</script>
+
+
+<script>
+// ===== XỬ LÝ HÌNH ẢNH: TỰ ĐỘNG TÌM ẢNH =====
+document.addEventListener('DOMContentLoaded', function(){
+
+  // Danh sách thư mục tự động thử — theo thứ tự ưu tiên
+  // File products.html nằm trong admin/ nên đường dẫn tương đối từ admin/
+  var AUTO_DIRS = [
+    'dist/assets/img/',      // admin/dist/assets/img/
+    '../img/gallery/',       // templatemo/img/gallery/
+    '../img/',               // templatemo/img/
+    'dist/assets/img/gallery/',
+    '',                      // cùng thư mục
+    '../',                   // thư mục cha
+  ];
+
+  function showPreview(src, label){
+    document.getElementById('previewImg').src = src;
+    document.getElementById('picturePreview').style.display = 'block';
+    document.getElementById('previewLabel').textContent = label || '';
+    document.getElementById('productPictureData').value = src;
+  }
+
+  function hidePreview(){
+    document.getElementById('picturePreview').style.display = 'none';
+    document.getElementById('previewImg').src = '';
+    document.getElementById('productPictureData').value = '';
+    document.getElementById('previewLabel').textContent = '';
+  }
+
+  // Thử lần lượt từng thư mục, dùng thư mục đầu tiên load được
+  function autoFindImage(filename, callback){
+    filename = filename.trim();
+    if(!filename){ callback(null); return; }
+
+    // Nếu người dùng gõ đường dẫn đầy đủ đã có / thì dùng luôn
+    if(filename.indexOf('/') !== -1 || filename.indexOf('\\') !== -1){
+      callback(filename);
+      return;
+    }
+
+    var dirs = AUTO_DIRS.slice();
+    function tryNext(){
+      if(dirs.length === 0){ callback(null); return; }
+      var dir = dirs.shift();
+      var fullPath = dir + filename;
+      var img = new Image();
+      img.onload = function(){ callback(fullPath); };
+      img.onerror = tryNext;
+      img.src = fullPath;
+    }
+    tryNext();
+  }
+
+  function resolveAndPreview(){
+    var input = document.getElementById('productPicturePath').value.trim();
+    if(!input){ alert('Vui lòng nhập tên hoặc đường dẫn ảnh!'); return; }
+
+    // Hiện loading
+    document.getElementById('previewLabel').textContent = '🔍 Đang tìm ảnh...';
+    document.getElementById('picturePreview').style.display = 'block';
+
+    autoFindImage(input, function(foundPath){
+      if(foundPath){
+        showPreview(foundPath, '✅ Tìm thấy: ' + foundPath);
+        document.getElementById('productPicture').value = '';
+      } else {
+        hidePreview();
+        alert('❌ Không tìm thấy ảnh "' + input + '"\nHãy thử nhập đường dẫn đầy đủ hơn,\nVD: dist/assets/img/camry.jpg');
+      }
+    });
+  }
+
+  document.getElementById('btnPreviewPath').addEventListener('click', resolveAndPreview);
+
+  document.getElementById('productPicturePath').addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){ e.preventDefault(); resolveAndPreview(); }
+  });
+
+  // Tự động tìm ngay khi người dùng ngừng gõ (debounce 600ms)
+  var debounceTimer;
+  document.getElementById('productPicturePath').addEventListener('input', function(){
+    clearTimeout(debounceTimer);
+    var val = this.value.trim();
+    if(!val){ hidePreview(); return; }
+    debounceTimer = setTimeout(function(){ resolveAndPreview(); }, 600);
+  });
+
+  // Upload file -> base64
+  document.getElementById('productPicture').addEventListener('change', function(){
+    var file = this.files[0];
+    if(!file) return;
+    var reader = new FileReader();
+    reader.onload = function(e){
+      showPreview(e.target.result, '⬆ ' + file.name);
+      document.getElementById('productPicturePath').value = '';
+    };
+    reader.readAsDataURL(file);
+  });
+});
+</script>
+
+</body>
+  <!--end::Body-->
+</html>

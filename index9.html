@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<style>
+/* ===== THINHCAR AUTH ===== */
+.tc-auth-wrap { display:inline-block; position:relative; vertical-align:middle; margin-left:14px; }
+.tc-login-btn {
+  background:transparent; border:2px solid rgba(255,255,255,0.8);
+  color:#fff; padding:5px 15px; border-radius:4px;
+  font-size:13px; font-family:'Open Sans',sans-serif;
+  cursor:pointer; letter-spacing:0.4px;
+  transition:background .2s;
+}
+.tc-login-btn:hover { background:rgba(255,255,255,0.18); }
+.tc-user-btn {
+  background:rgba(46,125,50,0.95); border:2px solid #43a047;
+  color:#fff; padding:5px 15px; border-radius:4px;
+  font-size:13px; font-family:'Open Sans',sans-serif;
+  cursor:pointer; font-weight:700; letter-spacing:0.4px;
+  transition:background .2s;
+}
+.tc-user-btn:hover { background:#2e7d32; }
+.tc-dropdown {
+  display:none; position:absolute; right:0; top:calc(100% + 8px);
+  background:#fff; border-radius:7px;
+  box-shadow:0 6px 24px rgba(0,0,0,0.18);
+  min-width:178px; z-index:99999; overflow:hidden;
+}
+.tc-dropdown.open { display:block; }
+.tc-dropdown a, .tc-dropdown button {
+  display:block; width:100%; text-align:left;
+  padding:11px 17px; background:none; border:none;
+  color:#333; font-size:13.5px;
+  font-family:'Open Sans',sans-serif; cursor:pointer;
+  text-decoration:none; transition:background .15s; box-sizing:border-box;
+}
+.tc-dropdown a:hover, .tc-dropdown button:hover { background:#f1f8f1; color:#2e7d32; }
+.tc-dd-divider { height:1px; background:#eee; }
+
+/* Modal */
+.tc-overlay {
+  display:none; position:fixed; inset:0;
+  background:rgba(0,0,0,0.55); z-index:999999;
+  align-items:center; justify-content:center;
+}
+.tc-overlay.open { display:flex; }
+.tc-modal {
+  background:#fff; border-radius:11px;
+  padding:36px 34px 28px; width:100%; max-width:360px;
+  box-shadow:0 14px 50px rgba(0,0,0,0.22); position:relative;
+  animation:tcIn .22s ease;
+}
+@keyframes tcIn { from{opacity:0;transform:translateY(-16px)} to{opacity:1;transform:translateY(0)} }
+.tc-close {
+  position:absolute; top:12px; right:15px;
+  background:none; border:none; font-size:22px;
+  color:#aaa; cursor:pointer; line-height:1;
+}
+.tc-close:hover { color:#333; }
+.tc-modal-brand { font-size:18px; font-weight:800; color:#2e7d32;
+  font-family:'Open Sans',sans-serif; letter-spacing:1px; margin-bottom:16px; }
+.tc-modal h3 { margin:0 0 4px; font-size:19px; color:#222;
+  font-family:'Open Sans',sans-serif; font-weight:700; }
+.tc-modal-sub { margin:0 0 20px; font-size:12.5px; color:#999;
+  font-family:'Open Sans',sans-serif; }
+.tc-modal label { display:block; font-size:12.5px; color:#555;
+  margin-bottom:5px; font-family:'Open Sans',sans-serif; }
+.tc-modal input {
+  width:100%; padding:10px 12px; border:1.5px solid #ddd;
+  border-radius:5px; font-size:14px; font-family:'Open Sans',sans-serif;
+  margin-bottom:14px; box-sizing:border-box; outline:none;
+  transition:border-color .2s;
+}
+.tc-modal input:focus { border-color:#43a047; }
+.tc-err { color:#c0392b; font-size:12.5px; margin:-8px 0 10px;
+  display:none; font-family:'Open Sans',sans-serif; }
+.tc-err.show { display:block; }
+.tc-submit {
+  width:100%; padding:11px; background:#2e7d32; color:#fff;
+  border:none; border-radius:5px; font-size:15px;
+  font-family:'Open Sans',sans-serif; font-weight:700;
+  cursor:pointer; transition:background .2s;
+}
+.tc-submit:hover { background:#1b5e20; }
+
+/* ===== FIX NAV WRAP ===== */
+.tm-nav-ul {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  white-space: nowrap !important;
+}
+.tm-nav-li {
+  white-space: nowrap !important;
+}
+.tm-nav-link {
+  white-space: nowrap !important;
+  display: inline-block !important;
+}
+</style>
+
+	<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>THINHCAR - Showroom Xe Ô Tô</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" />    
+	<link href="css/templatemo-style.css" rel="stylesheet" />
+</head>
+<!--
+
+Simple House
+
+https://templatemo.com/tm-539-simple-house
+
+-->
+<body> 
+
+	<div class="container">
+	<!-- Top box -->
+		<!-- Logo & Site Name -->
+		<div class="placeholder">
+			<div class="parallax-window" data-parallax="scroll" data-image-src="img/thinhcar-01.jpg">
+				<div class="tm-header">
+					<div class="row tm-header-inner">
+						<div class="col-md-6 col-12">
+							<img src="img/thinhcar-logo.png" alt="Logo"
+								 style="width:148px;height:auto;position:relative;top:18px;margin-right:-38px;">
+							<div class="tm-site-text-box">
+								<h1 class="tm-site-title">THINHCAR</h1>
+								<h6 class="tm-site-description">Uy tín tạo nên thương hiệu</h6>	
+							</div>
+						</div>
+						<nav class="col-md-6 col-12 tm-nav">
+							<ul class="tm-nav-ul">
+								<li class="tm-nav-li"><a href="index9.html" class="tm-nav-link active">Trang chủ</a></li>
+								<li class="tm-nav-li"><a href="about9.html" class="tm-nav-link">Giới thiệu</a></li>
+								<li class="tm-nav-li"><a href="contact9.html" class="tm-nav-link">Liên hệ</a></li>
+							<li class="tm-nav-li"><span class="tc-auth-wrap" id="tc-auth-wrap"></span></li>
+							</ul>
+						</nav>	
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<main>
+			<header class="row tm-welcome-section">
+				<h2 class="col-12 text-center tm-section-title">Chào mừng đến với THINHCAR</h2>
+				<p class="col-12 text-center">Chúng tôi chuyên cung cấp các dòng xe ô tô chất lượng cao, giá tốt, hỗ trợ trả góp toàn quốc.</p>
+			</header>
+			
+			<div class="tm-paging-links">
+				<nav>
+					<ul>
+						<li class="tm-paging-item"><a href="#" data-page="pizza" class="tm-paging-link active">Xe thể thao</a></li>
+
+						<li class="tm-paging-item"><a href="#" data-page="salad" class="tm-paging-link">Xe thương mại</a></li>
+
+						<li class="tm-paging-item"><a href="#" data-page="noodle" class="tm-paging-link">SUV</a></li>
+					</ul>
+				</nav>
+			</div>
+
+			<!-- Gallery -->
+			<div class="row tm-gallery">
+				<!-- gallery page 1 -->
+				<div id="tm-gallery-page-pizza" class="tm-gallery-page">
+					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+						<figure>
+							<img src="img/gallery/xe the thao-1.5.jpg" alt="Image" class="img-fluid tm-gallery-img" />
+							<figcaption>
+								<h4 class="tm-gallery-title">Mazda MX-5</h4>
+								<p class="tm-gallery-description">Mẫu roadster mui trần nổi tiếng với thiết kế thể thao nhỏ gọn, vô lăng chính xác và cảm giác lái phấn khích. Nội thất hiện đại, tiết kiệm nhiên liệu, phù hợp khách hàng yêu tốc độ và phong cách trẻ trung.</p>
+								<p class="tm-gallery-price">1.200.000.000 VNĐ</p>
+							</figcaption>
+						</figure>
+					</article>
+					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+						<figure>
+							<img src="img/gallery/xe the thao-02.jpg" alt="Image" class="img-fluid tm-gallery-img" />
+							<figcaption>
+								<h4 class="tm-gallery-title">Ford Mustang</h4>
+								<p class="tm-gallery-description">Biểu tượng xe cơ bắp Mỹ với ngoại hình mạnh mẽ, tiếng pô uy lực và khả năng tăng tốc ấn tượng. Khoang lái hiện đại, trang bị nhiều công nghệ an toàn, phù hợp người thích cá tính nổi bật.</p>
+								<p class="tm-gallery-price">3.800.000.000 VNĐ</p>
+							</figcaption>
+						</figure>
+					</article>
+					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+						<figure>
+							<img src="img/gallery/xe the thao-03.jpg" alt="Image" class="img-fluid tm-gallery-img" />
+							<figcaption>
+								<h4 class="tm-gallery-title">BMW Z4</h4>
+								<p class="tm-gallery-description">Dòng convertible hạng sang sở hữu thiết kế đẳng cấp, vận hành mượt mà và động cơ mạnh mẽ. Nội thất cao cấp, ghế da sang trọng, nhiều tiện nghi thông minh dành cho khách hàng thành đạt.</p>
+								<p class="tm-gallery-price">3.300.000.000 VNĐ</p>
+							</figcaption>
+						</figure>
+					</article>
+					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+						<figure>
+							<img src="img/gallery/xe the thao-04.jpg" alt="Image" class="img-fluid tm-gallery-img" />
+							<figcaption>
+								<h4 class="tm-gallery-title">Toyota GR86</h4>
+								<p class="tm-gallery-description">Mẫu coupe thể thao dẫn động cầu sau với khung gầm cân bằng, khả năng ôm cua tốt và cảm giác lái chân thật. Thiết kế trẻ trung, phù hợp người đam mê lái xe và thích trải nghiệm tốc độ.</p>
+								<p class="tm-gallery-price">2.100.000.000 VNĐ</p>
+							</figcaption>
+						</figure>
+					</article>
+					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+						<figure>
+							<img src="img/gallery/xe the thao-05.jpg" alt="Image" class="img-fluid tm-gallery-img" />
+							<figcaption>
+								<h4 class="tm-gallery-title">Audi TT</h4>
+								<p class="tm-gallery-description">Thiết kế nhỏ gọn nhưng sang trọng, khả năng tăng tốc nhanh, khoang lái hiện đại cùng nhiều công nghệ hỗ trợ lái tiên tiến, phù hợp khách hàng trẻ yêu thích phong cách thể thao châu Âu.</p>
+								<p class="tm-gallery-price">3.800.000.000 VNĐ</p>
+							</figcaption>
+						</figure>
+					</article>
+					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+						<figure>
+							<img src="img/gallery/xe the thao-06.jpg" alt="Image" class="img-fluid tm-gallery-img" />
+							<figcaption>
+								<h4 class="tm-gallery-title">Mercedes C43 AMG</h4>
+								<p class="tm-gallery-description">Mẫu coupe hiệu suất cao kết hợp giữa vẻ đẹp sang trọng và sức mạnh vượt trội, động cơ mạnh mẽ, nội thất cao cấp và khả năng vận hành ổn định trên nhiều cung đường.</p>
+								<p class="tm-gallery-price">4.500.000.000 VNĐ</p>
+							</figcaption>
+						</figure>
+					</article>
+					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+						<figure>
+							<img src="img/gallery/xe the thao-07.jpg" alt="Image" class="img-fluid tm-gallery-img" />
+							<figcaption>
+								<h4 class="tm-gallery-title">Porsche 718 Cayman</h4>
+								<p class="tm-gallery-description">Mẫu coupe thể thao danh tiếng đến từ Đức với khả năng tăng tốc mạnh mẽ, khung gầm cân bằng hoàn hảo, cảm giác lái chính xác và nội thất sang trọng dành cho người đam mê tốc độ.</p>
+								<p class="tm-gallery-price">4.200.000.000 VNĐ</p>
+							</figcaption>
+						</figure>
+					</article>
+					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+						<figure>
+							<img src="img/gallery/xe the thao-08.jpg" alt="Image" class="img-fluid tm-gallery-img" />
+							<figcaption>
+								<h4 class="tm-gallery-title">Nissan GT-R</h4>
+								<p class="tm-gallery-description">Siêu xe Nhật Bản nổi tiếng với động cơ tăng áp mạnh mẽ, khả năng bứt tốc ấn tượng, hệ dẫn động thông minh và thiết kế cơ bắp đầy uy lực trên mọi cung đường.</p>
+								<p class="tm-gallery-price">6.500.000.000 VNĐ</p>
+							</figcaption>
+						</figure>
+					</article>
+				</div> <!-- gallery page 1 -->
+				
+				<!-- gallery page 2 -->
+				<div id="tm-gallery-page-salad" class="tm-gallery-page hidden">
+					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+						<figure>
+							<img src="img/gallery/xe thuong mai-01.jpg" alt="Image" class="img-fluid tm-gallery-img" />
+							<figcaption>
+								<h4 class="tm-gallery-title">Ford Transit</h4>
+								<p class="tm-gallery-description">Dòng xe van thương mại nổi tiếng với khoang chở hàng rộng rãi, động cơ bền bỉ tiết kiệm nhiên liệu, phù hợp vận chuyển hành khách và hàng hóa đường dài.</p>
+								<p class="tm-gallery-price">1.250.000.000 VNĐ</p>
+							</figcaption>
+						</figure>
+					</article>
+					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+						<figure>
+							<img src="img/gallery/xe thuong mai-02.jpg" alt="Image" class="img-fluid tm-gallery-img" />
+							<figcaption>
+								<h4 class="tm-gallery-title">Hyundai Solati</h4>
+								<p class="tm-gallery-description">Mẫu xe 16 chỗ cao cấp với không gian nội thất rộng, ghế ngồi thoải mái, vận hành êm ái và thích hợp kinh doanh dịch vụ vận tải hành khách.</p>
+								<p class="tm-gallery-price">1.180.000.000 VNĐ</p>
+							</figcaption>
+						</figure>
+					</article>
+					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+						<figure>
+							<img src="img/gallery/xe thuong mai-03.jpg" alt="Image" class="img-fluid tm-gallery-img" />
+							<figcaption>
+								<h4 class="tm-gallery-title">Toyota Hiace</h4>
+								<p class="tm-gallery-description">Dòng xe thương mại bền bỉ nổi tiếng của Toyota, động cơ ổn định, chi phí bảo dưỡng thấp và phù hợp cho doanh nghiệp vận tải chuyên nghiệp.</p>
+								<p class="tm-gallery-price">1.320.000.000 VNĐ</p>
+							</figcaption>
+						</figure>
+					</article>
+					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+						<figure>
+							<img src="img/gallery/xe thuong mai-04.jpg" alt="Image" class="img-fluid tm-gallery-img" />
+							<figcaption>
+								<h4 class="tm-gallery-title">Mercedes Sprinter</h4>
+								<p class="tm-gallery-description">Mẫu xe van hạng sang với khoang cabin hiện đại, động cơ mạnh mẽ, khả năng vận hành ổn định và phù hợp dịch vụ vận chuyển cao cấp.</p>
+								<p class="tm-gallery-price">2.450.000.000 VNĐ</p>
+							</figcaption>
+						</figure>
+					</article>
+					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+						<figure>
+							<img src="img/gallery/xe thuong mai-05.jpg" alt="Image" class="img-fluid tm-gallery-img" />
+							<figcaption>
+								<h4 class="tm-gallery-title">Isuzu QKR</h4>
+								<p class="tm-gallery-description">Xe tải nhẹ nổi bật với khả năng chở hàng tốt, khung gầm chắc chắn, máy dầu tiết kiệm nhiên liệu và thích hợp kinh doanh giao nhận nội thành.</p>
+								<p class="tm-gallery-price">720.000.000 VNĐ</p>
+							</figcaption>
+						</figure>
+					</article>
+					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+						<figure>
+							<img src="img/gallery/xe thuong mai-06.jpg" alt="Image" class="img-fluid tm-gallery-img" />
+							<figcaption>
+								<h4 class="tm-gallery-title">Hino XZU720</h4>
+								<p class="tm-gallery-description">Dòng xe tải thương mại chất lượng cao đến từ Nhật Bản, vận hành bền bỉ, tải trọng tốt và phù hợp vận chuyển hàng hóa đường dài.</p>
+								<p class="tm-gallery-price">890.000.000 VNĐ</p>
+							</figcaption>
+						</figure>
+					</article>
+				</div> <!-- gallery page 2 -->
+				
+				<!-- gallery page 3 -->
+				<div id="tm-gallery-page-noodle" class="tm-gallery-page hidden">
+					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+						<figure>
+							<img src="img/gallery/suv-01.jpg" alt="Image" class="img-fluid tm-gallery-img" />
+							<figcaption>
+								<h4 class="tm-gallery-title">Toyota Fortuner</h4>
+								<p class="tm-gallery-description">Mẫu SUV 7 chỗ nổi tiếng với độ bền cao, khung gầm chắc chắn, khả năng vận hành ổn định trên nhiều địa hình và nội thất rộng rãi phù hợp gia đình.</p>
+								<p class="tm-gallery-price">1.350.000.000 VNĐ</p>
+							</figcaption>
+						</figure>
+					</article>
+					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+						<figure>
+							<img src="img/gallery/suv-02.jpg" alt="Image" class="img-fluid tm-gallery-img" />
+							<figcaption>
+								<h4 class="tm-gallery-title">Ford Everest</h4>
+								<p class="tm-gallery-description">SUV mạnh mẽ sở hữu động cơ tăng áp hiện đại, công nghệ an toàn thông minh, không gian rộng rãi và khả năng vượt địa hình ấn tượng.</p>
+								<p class="tm-gallery-price">1.520.000.000 VNĐ</p>
+							</figcaption>
+						</figure>
+					</article>
+					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+						<figure>
+							<img src="img/gallery/suv-03.jpg" alt="Image" class="img-fluid tm-gallery-img" />
+							<figcaption>
+								<h4 class="tm-gallery-title">Hyundai Santa Fe</h4>
+								<p class="tm-gallery-description">Mẫu SUV cao cấp với thiết kế hiện đại, nội thất sang trọng, nhiều tiện nghi thông minh và cảm giác lái êm ái cho gia đình thành đạt.</p>
+								<p class="tm-gallery-price">1.450.000.000 VNĐ</p>
+							</figcaption>
+						</figure>
+					</article>
+					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+						<figure>
+							<img src="img/gallery/suv-04.jpg" alt="Image" class="img-fluid tm-gallery-img" />
+							<figcaption>
+								<h4 class="tm-gallery-title">Kia Sorento</h4>
+								<p class="tm-gallery-description">SUV 7 chỗ phong cách trẻ trung, trang bị nhiều công nghệ hỗ trợ lái, khoang cabin rộng rãi và khả năng tiết kiệm nhiên liệu tốt.</p>
+								<p class="tm-gallery-price">1.390.000.000 VNĐ</p>
+							</figcaption>
+						</figure>
+					</article>
+					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+						<figure>
+							<img src="img/gallery/suv-05.jpg" alt="Image" class="img-fluid tm-gallery-img" />
+							<figcaption>
+								<h4 class="tm-gallery-title">Mazda CX-8</h4>
+								<p class="tm-gallery-description">Thiết kế sang trọng chuẩn Nhật Bản, nội thất tinh tế, động cơ vận hành mượt mà cùng nhiều tính năng an toàn cao cấp dành cho gia đình.</p>
+								<p class="tm-gallery-price">1.320.000.000 VNĐ</p>
+							</figcaption>
+						</figure>
+					</article>
+					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+						<figure>
+							<img src="img/gallery/suv-06.jpg" alt="Image" class="img-fluid tm-gallery-img" />
+							<figcaption>
+								<h4 class="tm-gallery-title">Honda CR-V</h4>
+								<p class="tm-gallery-description">SUV đô thị nổi bật với độ bền cao, không gian tiện dụng, khả năng tiết kiệm nhiên liệu tốt và công nghệ hỗ trợ lái hiện đại.</p>
+								<p class="tm-gallery-price">1.250.000.000 VNĐ</p>
+							</figcaption>
+						</figure>
+					</article>
+
+				</div> <!-- gallery page 3 -->
+			</div>
+			<div class="tm-section tm-container-inner">
+				<div class="row">
+					<div class="col-md-6">
+						<figure class="tm-description-figure">
+							<img src="img/anh dich vu-01.jpg" alt="Image" class="img-fluid" />
+						</figure>
+					</div>
+					<div class="col-md-6">
+						<div class="tm-description-box"> 
+							<h4 class="tm-gallery-title">Dịch vụ THINHCAR</h4>
+							<p class="tm-mb-45">THINHCAR tự hào mang đến các dòng xe chất lượng cao, giá tốt, thủ tục nhanh gọn và dịch vụ hậu mãi uy tín.</p>
+							<a href="about.html" class="tm-btn tm-btn-default tm-right">Xem thêm</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<footer class="tm-footer text-center">
+			<p>
+				Copyright © 2026 THINHCAR
+
+				| Thiết kế bởi Thịnh
+			</p>
+		</footer>
+	</div>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/parallax.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			// Handle click on paging links
+			$('.tm-paging-link').click(function(e){
+				e.preventDefault();
+				
+				var page = $(this).data("page");
+				$('.tm-gallery-page').addClass('hidden');
+				$('#tm-gallery-page-' + page).removeClass('hidden');
+				$('.tm-paging-link').removeClass('active');
+				$(this).addClass("active");
+			});
+		});
+	</script>
+
+<!-- THINHCAR Login Modal -->
+<div class="tc-overlay" id="tc-overlay">
+  <div class="tc-modal">
+    <button class="tc-close" id="tc-close">&times;</button>
+    <div class="tc-modal-brand">THINHCAR</div>
+    <h3>Đăng nhập</h3>
+    <p class="tc-modal-sub">Uy tín tạo nên thương hiệu</p>
+    <label for="tc-user">Tên đăng nhập</label>
+    <input type="text" id="tc-user" placeholder="Nhập tên đăng nhập" />
+    <label for="tc-pass">Mật khẩu</label>
+    <input type="password" id="tc-pass" placeholder="Nhập mật khẩu" />
+    <div class="tc-err" id="tc-err">Tên đăng nhập hoặc mật khẩu không đúng.</div>
+    <button class="tc-submit" id="tc-submit">Đăng nhập</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  function getUser(){ return localStorage.getItem('thinhcar_user'); }
+  function setUser(n){ localStorage.setItem('thinhcar_user', n); }
+  function delUser(){ localStorage.removeItem('thinhcar_user'); }
+  function esc(s){ return s.replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); }
+
+  function renderAuth(){
+    var wrap = document.getElementById('tc-auth-wrap');
+    if(!wrap) return;
+    var user = getUser();
+    if(!user){
+      wrap.innerHTML = '<button class="tc-login-btn" id="tc-open">&#128100; Đăng nhập</button>';
+      document.getElementById('tc-open').onclick = function(){ document.getElementById('tc-overlay').classList.add('open'); setTimeout(function(){document.getElementById('tc-user').focus();},80); };
+    } else {
+      var isAdmin = (user === 'admin');
+      var adminRow = isAdmin ? '<div class="tc-dd-divider"></div><a href="admin/index.html">&#9881; Trang quản trị</a>' : '';
+      wrap.innerHTML =
+        '<button class="tc-user-btn" id="tc-ubtn">&#128100; '+esc(user)+' &#9660;</button>'+
+        '<div class="tc-dropdown" id="tc-dd">'+
+          adminRow+
+          '<div class="tc-dd-divider"></div>'+
+          '<button id="tc-logout">&#128682; Đăng xuất</button>'+
+        '</div>';
+      document.getElementById('tc-ubtn').onclick = function(e){
+        e.stopPropagation();
+        document.getElementById('tc-dd').classList.toggle('open');
+      };
+      document.getElementById('tc-logout').onclick = function(){ delUser(); renderAuth(); };
+    }
+  }
+
+  function doLogin(){
+    var user = document.getElementById('tc-user').value.trim();
+    var pass = document.getElementById('tc-pass').value;
+    var err  = document.getElementById('tc-err');
+    err.classList.remove('show');
+    if(!user||!pass){ err.textContent='Vui lòng nhập đầy đủ thông tin.'; err.classList.add('show'); return; }
+    if(user==='admin' && pass==='888'){ setUser('admin'); closeModal(); renderAuth(); }
+    else if(user!=='admin'){ setUser(user); closeModal(); renderAuth(); }
+    else { err.textContent='Tên đăng nhập hoặc mật khẩu không đúng.'; err.classList.add('show'); }
+  }
+
+  function closeModal(){
+    document.getElementById('tc-overlay').classList.remove('open');
+    document.getElementById('tc-err').classList.remove('show');
+    document.getElementById('tc-user').value='';
+    document.getElementById('tc-pass').value='';
+  }
+
+  document.addEventListener('click', function(e){
+    var dd = document.getElementById('tc-dd');
+    if(dd && !dd.contains(e.target) && e.target.id!=='tc-ubtn') dd.classList.remove('open');
+    var overlay = document.getElementById('tc-overlay');
+    if(overlay && e.target===overlay) closeModal();
+  });
+
+  document.addEventListener('DOMContentLoaded', function(){
+    renderAuth();
+    document.getElementById('tc-close').onclick = closeModal;
+    document.getElementById('tc-submit').onclick = doLogin;
+    document.getElementById('tc-pass').onkeydown = function(e){ if(e.key==='Enter') doLogin(); };
+  });
+})();
+</script>
+
+
+<script>
+// ===== ĐỒNG BỘ SẢN PHẨM TỪ ADMIN -> GALLERY =====
+(function(){
+  // Map category admin -> page id trong gallery
+  var catMap = {
+    'Xe thể thao': 'pizza',
+    'Xe thương mại': 'salad',
+    'Xe SUV': 'noodle'
+  };
+
+  function buildGalleryItem(p) {
+    // Dùng picture nếu có, fallback placeholder
+    var imgSrc = p.picture && p.picture.trim() !== '' ? p.picture : 'img/gallery/xe the thao-1.5.jpg';
+    return `<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item tm-dynamic-item">
+      <figure>
+        <img src="${imgSrc}" alt="${escH(p.name)}" class="img-fluid tm-gallery-img" style="width:100%;aspect-ratio:4/3;object-fit:cover;" />
+        <figcaption>
+          <h4 class="tm-gallery-title">${escH(p.name)}</h4>
+          <p class="tm-gallery-description">${escH(p.description)}</p>
+          <p class="tm-gallery-price">${escH(p.price)} VNĐ</p>
+        </figcaption>
+      </figure>
+    </article>`;
+  }
+
+  function escH(s){ 
+    if(!s) return '';
+    return String(s).replace(/[&<>"']/g,function(c){
+      return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+
+  function renderDynamicProducts() {
+    // Xóa các item đã thêm trước đó
+    document.querySelectorAll('.tm-dynamic-item').forEach(function(el){ el.remove(); });
+
+    var products = [];
+    try { products = JSON.parse(localStorage.getItem('products') || '[]'); } catch(e){}
+    if(!products.length) return;
+
+    products.forEach(function(p){
+      var pageId = catMap[p.category] || 'pizza';
+      var page = document.getElementById('tm-gallery-page-' + pageId);
+      if(page){
+        page.insertAdjacentHTML('beforeend', buildGalleryItem(p));
+      }
+    });
+  }
+
+  // Chạy khi trang load
+  document.addEventListener('DOMContentLoaded', renderDynamicProducts);
+
+  // Lắng nghe thay đổi localStorage từ tab khác (admin)
+  window.addEventListener('storage', function(e){
+    if(e.key === 'products') renderDynamicProducts();
+  });
+})();
+</script>
+
+</body>
+</html>
